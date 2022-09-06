@@ -1,3 +1,4 @@
+import ".app.scss"
 import InventoryForm from './components/InventoryForm/InventoryForm';
 
 
