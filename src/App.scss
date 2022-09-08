@@ -17,7 +17,7 @@ body {
 
 /* Typography*/
 h1 {
-  font-size: 1.75rem;
+  font-size: 1.6rem;
   line-height: 2.25rem;
   font-weight: 600;
 
@@ -60,7 +60,7 @@ h4 {
   }
 }
 
-header {
+.app-header {
   height: 100px;
   background-color: $header-background;
   margin: 0;
@@ -88,9 +88,9 @@ header {
     }
     // the heading below 👇 is for testing purposes
     // and needs to be removed when we start using the real components
-    & h1 {
-      margin: 0;
-      padding-bottom: 5rem;
-    }
+    // & h1 {
+    //   margin: 0;
+    //   padding-bottom: 5rem;
+    // }
   }
 }

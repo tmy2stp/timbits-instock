@@ -32,6 +32,7 @@
 }
 
 @mixin buttons {
+  font-family: $titillium-web;
   font-size: 0.8125rem;
   line-height: 1.25rem;
   font-weight: 600;
