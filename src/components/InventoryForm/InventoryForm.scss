@@ -5,12 +5,24 @@
 
 .inventory-form {
     &__header {
+        flex-basis: 100%;
         display: flex;
-        padding: 0 2rem;
+        padding: 1rem 1.5rem;
         border-bottom: 1px solid $outline-dividers-borders;
+        margin-bottom: .5rem;
+        align-items: baseline;
+        @include tablet {
+            margin-bottom: 1rem;
+            padding: 1.5rem 2rem 1rem 2rem;
+        }
     }
     &__back {
-        margin-right: 1rem;
+        margin-right: .25rem;
+        transform: translate(-4px, 2px);
+
+        @include tablet {
+            margin-right: 1rem;
+        }
     }
     &__title {
         margin: 0;
@@ -20,15 +32,41 @@
         flex-wrap: wrap;
     }
     &__section {
-        padding: 0 2rem;
-        flex-basis: 50%;
+        padding: 0 1.5rem;
         display: flex;
         flex-direction: column;
+        flex-basis: 100%;
+        @include tablet {
+            flex-basis: 50%;
+        }
+        &--left {
+            border-bottom: 1px solid $outline-dividers-borders;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            @include tablet {
+                padding: 0 2rem;
+                border-right: 1px solid $outline-dividers-borders;
+                border-bottom: none;
+            }
+        }
+    }
+    &__subtitle {
+        margin-top: 0;
+        @include tablet {
+            margin-top: 1rem;
+        }
+        @include desktop {
+            margin-top: .5rem;
+        }
     }
     &__label {
+        margin: .5rem 0;
         display: flex;
         flex-direction: column;
         @include labels;
+        @include tablet {
+            margin: 1rem 0;
+        }
     }
     &__input {
         padding: .5rem 1rem;
@@ -38,9 +76,15 @@
         border: 1px solid $outline-dividers-borders;
         font-family: $titillium-web;            
         @include body-medium;
+        &:focus {
+            border-color: $inactive;
+        }
         &--textarea {
             resize: none;
-            height: 8rem;
+            height: 6rem;
+            @include tablet {
+                height: 8rem;
+            }
         }
         &--select {
             color: $place-holder;
@@ -50,14 +94,58 @@
             &::-ms-expand {
                 display: none;
            }
-           &::after {
-            content: "";
-           }
+            background-image: url("../../assets/images/arrow_drop_down-24px.svg");
+            background-repeat: no-repeat;
+            background-position: 95% 50%;
         }
+        &--quantity {
+            @include tablet {
+                width: 30%;
+                &::-webkit-inner-spin-button{
+                    -webkit-appearance: none;
+                    margin: 0;
+                }    
+            }
+        }
+    }
+    &__radio {
+        margin-right: .5rem;
+        transform: translateY(2px);
+    }
+    &__radio-label {
+        @include body-medium;
+        margin-right: 2rem;
     }
 
     &__footer {
         flex-basis: 100%;
+        background-color: $page-background;
+        padding: 1rem;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 1.5rem;
+        @include tablet {
+            padding: 1rem 2rem;
+            margin-top: .5rem;
+        }
+    }
+    &__button {
+        @include buttons;
+        border-radius: 1.25rem;
+        background-color: $inactive;
+        border: none;
+        color: $primary-background;
+        padding: .5rem 1rem;
+        flex-basis: 50%;
+        @include tablet {
+            flex-basis: auto;
+        }
+        &--cancel {
+            background-color: $primary-background;
+            border: 1px solid $outline-dividers-borders;
+            color: $primary-text;
+            margin-right: 1rem;
+        }
     }
 
 }

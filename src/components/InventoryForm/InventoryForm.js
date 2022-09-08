@@ -10,10 +10,10 @@ function InventoryForm({ formType }) {
           src={backArrow}
           alt="arrow to navigate back"
         />
-        <h1 className="inventory-from__title">{formType} Inventory Item</h1>
+        <h1 className="inventory-form__title">{formType} Inventory Item</h1>
       </header>
       <form className="inventory-form__form">
-        <div className="inventory-form__section">
+        <div className="inventory-form__section inventory-form__section--left">
           <h2 className="inventory-form__subtitle">Item Details</h2>
           <label className="inventory-form__label">
             Item Name
@@ -46,34 +46,38 @@ function InventoryForm({ formType }) {
             Status
             <div>
               <input
+                className="inventory-form__radio"
                 type="radio"
                 id="inStock"
                 name="inStock"
                 value="In Stock"
               />
-              <label for="inStock">In Stock</label>
+              <label for="inStock" className="inventory-form__radio-label">In Stock</label>
               <input
+                className="inventory-form__radio"
                 type="radio"
                 id="inStock"
                 name="inStock"
                 value="In Stock"
               />
-              <label for="inStock">In Stock</label>
+              <label for="inStock" className="inventory-form__radio-label">Out of stock</label>
             </div>
           </label>
           <label className="inventory-form__label">
             Quantity
             <input
-              className="inventory-form__input"
+              className="inventory-form__input inventory-form__input--quantity"
               type="number"
               id="quantity"
               name="quantity"
               min="0"
+              placeholder="0"
             />
           </label>
           <label className="inventory-form__label">
             Warehouse
-            <select className="inventory-form__input">
+            <select className="inventory-form__input inventory-form__input--select">
+              <option classname="inventory-form__default" selected value="Please select">Please Select</option>
               <option value="A">A</option>
               <option value="B">B</option>
             </select>
@@ -81,12 +85,12 @@ function InventoryForm({ formType }) {
         </div>
         <footer className="inventory-form__footer">
           <button 
-            className="inventory-from__button inventory-from__button--cancel">
+            className="inventory-form__button inventory-form__button--cancel">
             Cancel
           </button>
           <button 
-            className="inventory-from__button">
-            Save
+            className="inventory-form__button inventory-form__button--before">
+            + Add Item
           </button>
         </footer>
       </form>
