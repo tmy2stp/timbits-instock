@@ -1,5 +1,5 @@
 import './Header.scss'
-import logo from "/Users/never_lackin/Desktop/timbits-instock/src/assets/InStock-Logo_2x.png"
+import logo from "../../assets/InStock-Logo_2x.png";
 
 import { Link, NavLink } from "react-router-dom"
 
@@ -12,12 +12,12 @@ const Header = () => {
                 <img className='header__logo' src={logo} alt='instock logo' />
             </Link>
             <nav className='header__nav'>
-                <NavLink to="/warehouses" className="header__navlink">
-                    WAREHOUSES
+                <NavLink to="/warehouses" className="header__link-nav">
+                    Warehouses
                 </NavLink>
 
-                <NavLink to="/inventory" className="header__navlink">
-                    INVENTORY
+                <NavLink to="/inventory" className="header__link-nav">
+                    Inventory
                 </NavLink>
             </nav>
         </header>
