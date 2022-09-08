@@ -1,7 +1,7 @@
 import WarehouseInventoryList from "../components/WarehouseInventoryList/WarehouseInventoryList";
+import WarehouseDetails from "../components/WarehouseDetails/WarehouseDetails";
 
-
-function WarehouseDetails() {
+function WarehouseDetailsPage() {
   return (
     <>
       <WarehouseDetails />
@@ -10,4 +10,4 @@ function WarehouseDetails() {
   )
 }
 
-export default WarehouseDetails;
+export default WarehouseDetailsPage;
