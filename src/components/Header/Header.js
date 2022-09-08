@@ -8,6 +8,7 @@ const Header = () => {
 
     return (
         <header className='header'>
+
             <Link to="/" className='header__link'>
                 <img className='header__logo' src={logo} alt='instock logo' />
             </Link>
@@ -22,13 +23,6 @@ const Header = () => {
             </nav>
         </header>
     )
-    // MAKE CLASS FOR ACTIVE LINK!!!!
-// !!!
-// TABLET / DESKTOP 
-// research navLink stylings re: class for active link 
-
-
-
 }
 
 export default Header

@@ -6,9 +6,13 @@
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
+    @include tablet {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+       
+    }
 
     &__link {
-        
         width:100%;
         text-align: center;
         margin:16px 0;
@@ -22,7 +26,10 @@
         display:flex;
         gap:24px;
         margin:0 16px;
-        //align-items: center;
+        @include tablet {
+            width: auto;
+        }
+
     }
     &__link-nav {
         width:50%;
@@ -37,6 +44,11 @@
     }
     &__logo {
         width:25%;
+        @include tablet {
+            margin-right: auto;
+            width: auto;
+        }
+    
     }
 }
 
