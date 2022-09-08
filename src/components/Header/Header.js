@@ -23,10 +23,11 @@ const Header = () => {
         </header>
     )
     // MAKE CLASS FOR ACTIVE LINK!!!!
-    // navbar 
-    // logo link
-    // warehouses aspect left (buttons)
-    // inventory aspect right (buttons)
+// !!!
+// TABLET / DESKTOP 
+// research navLink stylings re: class for active link 
+
+
 
 }
 
