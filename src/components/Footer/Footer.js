@@ -1,9 +1,12 @@
 import './Footer.scss'
 
 
-const Footer = () => {
-
-
+function Footer() {
+    return (
+        <footer className="footer">
+            <p>&copy; InStock Inc. All Rights Reserved</p>
+        </footer>
+    );
 }
 
-export default Footer
+export default Footer;
