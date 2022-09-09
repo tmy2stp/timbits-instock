@@ -1,6 +1,7 @@
 import InventoryForm from './components/InventoryForm/InventoryForm';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.scss";
+import NewWarehouse from './components/NewWarehouse/NewWarehouse';
 
 function App() {
   return(
@@ -13,6 +14,7 @@ function App() {
             <div className="background__card">
               <Routes>
               <Route path="/inventory/add-new" element={<InventoryForm formType={"Add New"} />}/>
+              <Route path="/warehouses/add-new" element={<NewWarehouse/>}/>
               {/* <Route path="/" element={}/>
               <Route path="/warehouses" element={}/>
               <Route path="/warehouses/:id" element={}/>
