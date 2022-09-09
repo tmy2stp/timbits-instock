@@ -47,15 +47,19 @@ function WarehouseDetails() {
             <div className="warehouse-details__bottom">
                 <div className="warehouse-details__address">
                     <h4 className="warehouse-details__label">Warehouse address:</h4>
-                    <p className="warehouse-details__content">{warehouseDetails.address}, {warehouseDetails.city}, {warehouseDetails.country}</p>
+                    <p className="warehouse-details__content">
+                        {warehouseDetails.address}, 
+                        {width>=767 ? null : ` ${warehouseDetails.city}, ${warehouseDetails.country}`}
+                    </p>
+                    {width<767 ? null : <p className="warehouse-details__content">{warehouseDetails.city}, {warehouseDetails.country}</p>}
                 </div>
                 <div className="warehouse-details__contacts">
-                    <div className="warehouse-details__contacts-left">
+                    <div>
                         <h4 className="warehouse-details__label">Contact name:</h4>
                         <p className="warehouse-details__content">{warehouseDetails.contact.name}</p>
                         <p className="warehouse-details__content">{warehouseDetails.contact.position}</p>
                     </div>
-                    <div className="warehouse-details__contacts-right">
+                    <div>
                         <h4 className="warehouse-details__label">Contact information:</h4>
                         <p className="warehouse-details__content">{warehouseDetails.contact.phone}</p>
                         <p className="warehouse-details__content">{warehouseDetails.contact.email}</p>
