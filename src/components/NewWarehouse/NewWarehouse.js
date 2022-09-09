@@ -103,16 +103,6 @@ function NewWarehouse() {
       setIsError(true);
     }
   };
-  console.log(
-    managerEmail,
-    managerPosition,
-    managerName,
-    country,
-    managerPhone,
-    city,
-    address,
-    name
-  );
 
   return (
     <div className="newWarehouse-form">
