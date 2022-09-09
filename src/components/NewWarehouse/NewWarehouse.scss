@@ -3,7 +3,7 @@
 @use "../../styles/partials/typography" as *;
 
 
-.inventory-form {
+.newWarehouse-form {
     &__header {
         flex-basis: 100%;
         display: flex;
@@ -79,42 +79,6 @@
         &:focus {
             border-color: $inactive;
         }
-        &--textarea {
-            resize: none;
-            height: 6rem;
-            @include tablet {
-                height: 8rem;
-            }
-        }
-        &--select {
-            color: $place-holder;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            &::-ms-expand {
-                display: none;
-           }
-            background-image: url("../../assets/images/arrow_drop_down-24px.svg");
-            background-repeat: no-repeat;
-            background-position: 95% 50%;
-        }
-        &--quantity {
-            @include tablet {
-                width: 30%;
-                &::-webkit-inner-spin-button{
-                    -webkit-appearance: none;
-                    margin: 0;
-                }    
-            }
-        }
-    }
-    &__radio {
-        margin-right: .5rem;
-        transform: translateY(2px);
-    }
-    &__radio-label {
-        @include body-medium;
-        margin-right: 2rem;
     }
 
     &__footer {
