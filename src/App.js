@@ -2,6 +2,7 @@ import InventoryForm from './components/InventoryForm/InventoryForm';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.scss";
 import Footer from './components/Footer/Footer.js';
+import WarehouseDetailsPage from "./pages/WarehouseDetailsPage";
 
 function App() {
   return(
@@ -14,10 +15,10 @@ function App() {
             <div className="background__card">
               <Routes>
               <Route path="/inventory/add-new" element={<InventoryForm formType={"Add New"} />}/>
+              <Route path="/warehouses/warehouse/:id" element={<WarehouseDetailsPage />}/>
               {/* <Route path="/" element={}/>
               <Route path="/warehouses" element={}/>
-              <Route path="/warehouses/:id" element={}/>
-              <Route path="/warehouses/:id/edit" element={}/>
+              <Route path="/warehouses/edit/:id" element={}/>
               <Route path="/warehouses/add-new" element={}/>
               <Route path="/inventory" element={}/>
               <Route path="/inventory/:id" element={}/>
