@@ -14,7 +14,7 @@ function App() {
             <div className="background__card">
               <Routes>
               <Route path="/inventory/add-new" element={<InventoryForm formType={"Add New"} />}/>
-              <Route path="/warehouses/:id" element={}/>
+              <Route path="/warehouses/:id" element={<WarehouseDetailsPage />}/>
               {/* <Route path="/" element={}/>
               <Route path="/warehouses" element={}/>
               <Route path="/warehouses/:id/edit" element={}/>
