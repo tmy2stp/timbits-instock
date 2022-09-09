@@ -1,0 +1,44 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+
+.warehouse-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1rem;
+
+    @include tablet {
+        padding: 1.5rem 2rem;
+    }
+
+    &__left {
+        display: flex;
+
+    }
+
+    &__title {
+        margin: 0;
+        margin-left: .5rem
+    }
+
+    &__edit-button {
+        @include buttons;
+        background: url(../../assets/images/edit-white.svg) no-repeat scroll 0.625rem 0.625rem;
+        background-size: 1rem;
+        background-color: $inactive;
+        width: 2.25rem;
+        height: 2.25rem;
+        border: 0;
+        border-radius: 20px;
+        color: $primary-background;
+        padding-left: 1.5rem;
+
+        @include tablet {
+            width: 5rem;
+            height: 2.375rem;
+            background-position: 1rem;
+        }
+    }
+}

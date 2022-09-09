@@ -2,9 +2,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./WarehouseDetails.scss";
+import BackArrowIcon from "../../assets/images/arrow_back-24px.svg";
 
 function WarehouseDetails() {
     const [warehouseDetails, setWarehouseDetails] = useState();
+    const [width, setWidth] = useState(window.innerWidth);
 
     const {id} = useParams();
 
@@ -18,12 +20,31 @@ function WarehouseDetails() {
             })
     }, [])
 
+    useEffect(() => {
+        window.addEventListener('resize', handleWindowSizeChange);
+        return () => {
+            window.removeEventListener('resize', handleWindowSizeChange);
+        }
+    }, []);
+
     if(!warehouseDetails) {
         return <p>Loading.....</p>
     }
 
+    function handleWindowSizeChange() {
+        setWidth(window.innerWidth);
+    }
+
     return (
-        <div></div>
+        <>
+            <div className="warehouse-details">
+                <div className="warehouse-details__left">
+                    <img className="warehouse-details__icon" src={BackArrowIcon} alt="Back arrow"/>
+                    <h1 className="warehouse-details__title">{warehouseDetails.city}</h1>
+                </div>
+                <button className="warehouse-details__edit-button">{width<767 ? null : "Edit"}</button>
+            </div>
+        </>
     )
 }
 
