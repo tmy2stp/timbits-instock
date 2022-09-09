@@ -1,6 +1,8 @@
 import "./NewWarehouse.scss";
 import backArrow from "../../assets/images/arrow_back-24px.svg";
+import errorImg from "../../assets/images/error-24px.svg";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 const API_URL = "http://localhost:8080";
 
@@ -14,37 +16,73 @@ function NewWarehouse() {
   const [managerPosition, setManagerPosition] = useState("");
   const [managerPhone, setManagerPhone] = useState("");
   const [managerEmail, setManagerEmail] = useState("");
-  const [isError, setIsError] = useState(false);
+
+  //create states to dynamically generate error messages
+  const [nameError, setNameError] = useState(false);
+  const [addressError, setAddressError] = useState(false);
+  const [cityError, setCityError] = useState(false);
+  const [countryError, setCountryError] = useState(false);
+  const [managerNameError, setManagerNameError] = useState(false);
+  const [managerPositionError, setManagerPositionError] = useState(false);
+  const [managerPhoneError, setManagerPhoneError] = useState(false);
+  const [managerEmailError, setManagerEmailError] = useState(false);
+
+  //create state generate success message
+  const [success, setSuccess] = useState(false);
 
   const handleChangeName = (event) => {
+    if (nameError) {
+      setNameError(false);
+    }
     setName(event.target.value);
   };
 
   const handleChangeAddress = (event) => {
+    if (addressError) {
+      setAddressError(false);
+    }
     setAddress(event.target.value);
   };
 
   const handleChangeCity = (event) => {
+    if (cityError) {
+      setCityError(false);
+    }
     setCity(event.target.value);
   };
 
   const handleChangeCountry = (event) => {
+    if (countryError) {
+      setCountryError(false);
+    }
     setCountry(event.target.value);
   };
 
   const handleChangeContactName = (event) => {
+    if (managerNameError) {
+      setManagerNameError(false);
+    }
     setManagerName(event.target.value);
   };
 
   const handleChangePosition = (event) => {
+    if (managerPositionError) {
+      setManagerPositionError(false);
+    }
     setManagerPosition(event.target.value);
   };
 
   const handleChangePhone = (event) => {
+    if (managerPhoneError) {
+      setManagerPhoneError(false);
+    }
     setManagerPhone(event.target.value);
   };
 
   const handleChangeEmail = (event) => {
+    if (managerEmailError) {
+      setManagerEmailError(false);
+    }
     setManagerEmail(event.target.value);
   };
 
@@ -100,7 +138,14 @@ function NewWarehouse() {
           console.log(error.response.data);
         });
     } else {
-      setIsError(true);
+      setNameError(true);
+      setAddressError(true);
+      setCityError(true);
+      setCountryError(true);
+      setManagerNameError(true);
+      setManagerPhoneError(true);
+      setManagerEmailError(true);
+      setManagerPositionError(true);
     }
   };
 
@@ -120,42 +165,74 @@ function NewWarehouse() {
           <label className="newWarehouse-form__label">
             Warehouse Name
             <input
-              className="newWarehouse-form__input"
+              className={`newWarehouse-form__input ${
+                nameError ? "newWarehouse-form__input--error" : ""
+              }`}
               type="text"
               placeholder="Warehouse Name"
               onChange={handleChangeName}
               value={name}
             />
+            {nameError && (
+              <p className="error">
+                <img src={errorImg} alt="error icon" className="error__icon" />
+                This field is required
+              </p>
+            )}
           </label>
           <label className="newWarehouse-form__label">
             Street Address
             <input
-              className="newWarehouse-form__input"
+              className={`newWarehouse-form__input ${
+                addressError ? "newWarehouse-form__input--error" : ""
+              }`}
               type="text"
               placeholder="Street Address"
               onChange={handleChangeAddress}
               value={address}
             />
+            {addressError && (
+              <p className="error">
+                <img src={errorImg} alt="error icon" className="error__icon" />
+                This field is required
+              </p>
+            )}
           </label>
           <label className="newWarehouse-form__label">
             City
             <input
-              className="newWarehouse-form__input"
+              className={`newWarehouse-form__input ${
+                cityError ? "newWarehouse-form__input--error" : ""
+              }`}
               type="text"
               placeholder="City"
               onChange={handleChangeCity}
               value={city}
             />
+            {cityError && (
+              <p className="error">
+                <img src={errorImg} alt="error icon" className="error__icon" />
+                This field is required
+              </p>
+            )}
           </label>
           <label className="newWarehouse-form__label">
             Country
             <input
-              className="newWarehouse-form__input"
+              className={`newWarehouse-form__input ${
+                countryError ? "newWarehouse-form__input--error" : ""
+              }`}
               type="text"
               placeholder="Country"
               onChange={handleChangeCountry}
               value={country}
             />
+            {countryError && (
+              <p className="error">
+                <img src={errorImg} alt="error icon" className="error__icon" />
+                This field is required
+              </p>
+            )}
           </label>
         </div>
         <div className="newWarehouse-form__section">
@@ -163,49 +240,87 @@ function NewWarehouse() {
           <label className="newWarehouse-form__label">
             Contact Name
             <input
-              className="newWarehouse-form__input"
+              className={`newWarehouse-form__input ${
+                managerNameError ? "newWarehouse-form__input--error" : ""
+              }`}
               type="text"
               placeholder="Contact Name"
               onChange={handleChangeContactName}
               value={managerName}
             />
+            {managerNameError && (
+              <p className="error">
+                <img src={errorImg} alt="error icon" className="error__icon" />
+                This field is required
+              </p>
+            )}
           </label>
           <label className="newWarehouse-form__label">
             Position
             <input
-              className="newWarehouse-form__input"
+              className={`newWarehouse-form__input ${
+                managerPositionError ? "newWarehouse-form__input--error" : ""
+              }`}
               type="text"
               placeholder="Position"
               onChange={handleChangePosition}
               value={managerPosition}
             />
+            {managerPositionError && (
+              <p className="error">
+                <img src={errorImg} alt="error icon" className="error__icon" />
+                This field is required
+              </p>
+            )}
           </label>
           <label className="newWarehouse-form__label">
             Phone Number
             <input
-              className="newWarehouse-form__input"
+              className={`newWarehouse-form__input ${
+                managerPhoneError ? "newWarehouse-form__input--error" : ""
+              }`}
               type="text"
               placeholder="Phone Number"
               onChange={handleChangePhone}
               value={managerPhone}
             />
+            {managerPhoneError && (
+              <p className="error">
+                <img src={errorImg} alt="error icon" className="error__icon" />
+                This field is required
+              </p>
+            )}
           </label>
           <label className="newWarehouse-form__label">
             Email
             <input
-              className="newWarehouse-form__input"
+              className={`newWarehouse-form__input ${
+                managerEmailError ? "newWarehouse-form__input--error" : ""
+              }`}
               type="text"
               placeholder="Email"
               onChange={handleChangeEmail}
               value={managerEmail}
             />
+            {managerEmailError && (
+              <p className="error">
+                <img src={errorImg} alt="error icon" className="error__icon" />
+                This field is required
+              </p>
+            )}
           </label>
         </div>
         <footer className="newWarehouse-form__footer">
-          <button className="newWarehouse-form__button newWarehouse-form__button--cancel">
+          <Link
+            to="/"
+            className="newWarehouse-form__button newWarehouse-form__button--cancel"
+          >
             Cancel
-          </button>
-          <button className="newWarehouse-form__button newWarehouse-form__button--before">
+          </Link>
+          <button
+            type="submit"
+            className="newWarehouse-form__button newWarehouse-form__button--before"
+          >
             + Add Warehouse
           </button>
         </footer>
