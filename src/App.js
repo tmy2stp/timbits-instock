@@ -2,6 +2,7 @@ import InventoryForm from './components/InventoryForm/InventoryForm';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.scss";
 import NewWarehouse from './components/NewWarehouse/NewWarehouse';
+import WarehouseDetailsPage from "./pages/WarehouseDetailsPage";
 
 function App() {
   return(
@@ -15,10 +16,10 @@ function App() {
               <Routes>
               <Route path="/inventory/add-new" element={<InventoryForm formType={"Add New"} />}/>
               <Route path="/warehouses/add-new" element={<NewWarehouse/>}/>
+              <Route path="/warehouses/warehouse/:id" element={<WarehouseDetailsPage />}/>
               {/* <Route path="/" element={}/>
               <Route path="/warehouses" element={}/>
-              <Route path="/warehouses/:id" element={}/>
-              <Route path="/warehouses/:id/edit" element={}/>
+              <Route path="/warehouses/edit/:id" element={}/>
               <Route path="/warehouses/add-new" element={}/>
               <Route path="/inventory" element={}/>
               <Route path="/inventory/:id" element={}/>
