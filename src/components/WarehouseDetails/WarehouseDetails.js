@@ -5,11 +5,15 @@ import "./WarehouseDetails.scss";
 import BackArrowIcon from "../../assets/images/arrow_back-24px.svg";
 
 function WarehouseDetails() {
+    //State for selected warehouse data
     const [warehouseDetails, setWarehouseDetails] = useState();
+
+    //State to track size of browser window for styling
     const [width, setWidth] = useState(window.innerWidth);
 
     const {id} = useParams();
 
+    //Retrieve data from API
     useEffect (()=>{
         axios
             .get(`http://localhost:8080/warehouses/${id}`)
@@ -20,6 +24,7 @@ function WarehouseDetails() {
             })
     }, [])
 
+    //useEffect to track the size of browser window
     useEffect(() => {
         window.addEventListener('resize', handleWindowSizeChange);
         return () => {
@@ -31,6 +36,7 @@ function WarehouseDetails() {
         return <p>Loading.....</p>
     }
 
+    //Function that tracks window resizing
     function handleWindowSizeChange() {
         setWidth(window.innerWidth);
     }
