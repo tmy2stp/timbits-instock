@@ -1,6 +1,7 @@
 import InventoryForm from './components/InventoryForm/InventoryForm';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.scss";
+import Footer from './components/Footer/Footer.js';
 
 function App() {
   return(
@@ -25,6 +26,7 @@ function App() {
               </Routes>
             </div>
           </main>
+          <Footer />
       </BrowserRouter>
     </>
   );

@@ -1,5 +1,7 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
 .footer {
     padding-bottom: 2rem;
     text-align:center;
-
 }
