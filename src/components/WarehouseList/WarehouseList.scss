@@ -1,0 +1,45 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;
+
+
+
+.warehouse {
+   &__header {
+
+    &-input {
+        width: 100%;
+        padding: .5rem 1rem;
+        margin-top: .25rem;
+        margin-bottom: 1rem;
+        border-radius: 1.25rem;
+        outline: none;
+        border: 1px solid $outline-dividers-borders;
+        font-family: $titillium-web;
+        background-image: url('../../assets/images/search-24px.svg'); 
+        background-repeat: no-repeat; 
+        background-position: center;
+        background-position: right;       
+        @include body-medium;
+        &:focus {
+            border-color: $inactive;
+        }
+    }
+    
+
+    &-button {
+        width: 100%;
+        @include buttons;
+        border-radius: 1.25rem;
+        background-color: $inactive;
+        border: none;
+        color: $primary-background;
+        padding: .5rem 1rem;
+        flex-basis: 50%;
+        @include tablet {
+            flex-basis: auto;
+        }
+    }
+   }
+
+}
