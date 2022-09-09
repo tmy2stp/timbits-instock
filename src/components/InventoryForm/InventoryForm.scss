@@ -1,6 +1,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/typography" as *;
+@use "../../styles/partials/error";
 
 
 .inventory-form {
@@ -107,6 +108,9 @@
                 }    
             }
         }
+        &--error {
+            border: 1px solid $error-state;
+        }
     }
     &__radio {
         margin-right: .5rem;
@@ -141,6 +145,7 @@
             flex-basis: auto;
         }
         &--cancel {
+            text-decoration: none;
             background-color: $primary-background;
             border: 1px solid $outline-dividers-borders;
             color: $primary-text;
