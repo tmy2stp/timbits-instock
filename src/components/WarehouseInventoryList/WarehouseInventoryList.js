@@ -2,6 +2,7 @@ import "./WarehouseInventoryList.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import InventoryItem from "../InventoryItem/InventoryItem";
 
 function WarehouseInventoryList() {
   //State for selected warehouse's inventory data
@@ -18,11 +19,17 @@ function WarehouseInventoryList() {
             console.log(inventories);
             setWarehouseInventory(inventories);
         })
-}, [])
+  }, [])
+
+  if(!warehouseInventory) {
+    return <p>Loading.....</p>
+  }
 
   return (
     <div>
-      
+      {warehouseInventory.map((inventory)=>{
+          return <InventoryItem key={inventory.id} inventory = {inventory}/>
+      })}
     </div>
   )
 }
