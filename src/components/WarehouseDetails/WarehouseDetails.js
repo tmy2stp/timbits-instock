@@ -44,6 +44,22 @@ function WarehouseDetails() {
                 </div>
                 <button className="warehouse-details__edit-button">{width<767 ? null : "Edit"}</button>
             </div>
+            <div className="inventory-list">
+                <div className="inventory-list__address-container">
+                    <p className="">Warehouse address:</p>
+                    <p>{warehouseDetails.address}, {warehouseDetails.city}, {warehouseDetails.country}</p>
+                </div>
+                <div>
+                    <p>Contact name:</p>
+                    <p>{warehouseDetails.contact.name}</p>
+                    <p>{warehouseDetails.contact.position}</p>
+                </div>
+                <div>
+                    <p>Contact information:</p>
+                    <p>{warehouseDetails.contact.phone}</p>
+                    <p>{warehouseDetails.contact.email}</p>
+                </div>
+            </div>
         </>
     )
 }
