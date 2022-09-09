@@ -8,7 +8,7 @@ const Header = () => {
 
     return (
         <header className='header'>
-
+            <div className="header__container">
             <Link to="/" className='header__link'>
                 <img className='header__logo' src={logo} alt='instock logo' />
             </Link>
@@ -21,6 +21,7 @@ const Header = () => {
                     Inventory
                 </NavLink>
             </nav>
+            </div>
         </header>
     )
 }

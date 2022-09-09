@@ -2,57 +2,86 @@
 @use '../../styles/partials/variables' as *;
 
 .header {
-    padding-bottom: 11rem;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
+    padding-bottom: 13rem;
+
+    @include tablet {
+        padding-bottom: 8.75rem;
+    }
+
     @include tablet {
         flex-wrap: nowrap;
-        justify-content: space-between;
-       
+    }
+
+    &__container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        @include tablet {
+            justify-content: space-between;
+        }
+
+        @include desktop {
+            max-width: 63.75rem;
+            margin: auto;
+        }
     }
 
     &__link {
-        width:100%;
+        width: 100%;
         text-align: center;
-        margin:16px 0;
+        margin: 1.5rem 2rem;
+
         @include tablet {
-            width:50%;
+            width: 35%;
+            text-align: left;
+        }
+        @include desktop {
+            margin: 1.5rem 0;
         }
     }
+
     &__nav {
-        width:100%;
+        width: 100%;
         justify-content: center;
-        display:flex;
-        gap:24px;
-        margin:0 16px;
+        display: flex;
+        gap: 24px;
+        margin: 0 2rem;
+
         @include tablet {
-            width: auto;
+            width: 40%;
+            align-items: center;
+        }
+        @include desktop {
+            margin: 0;
         }
 
+        //align-items: center;
     }
+
     &__link-nav {
-        width:50%;
+        width: 50%;
         text-align: center;
-        text-decoration:none;
-        color:$table-header;
-        border-radius:24px;
-        padding:8px 0;
+        text-decoration: none;
+        color: $table-header;
+        border-radius: 24px;
+        padding: 8px 0;
     }
+
     &__link-nav:hover {
-        background-color:$header-hover-background;
+        background-color: $header-hover-background;
     }
+
     &__logo {
-        width:25%;
+        width: 25%;
+
         @include tablet {
-            margin-right: auto;
-            width: auto;
+            width: 50%;
         }
-    
     }
 }
 
 .active {
-    color:$primary-background;
+    color: $primary-background;
     background-color: $header-hover-background;
 }
