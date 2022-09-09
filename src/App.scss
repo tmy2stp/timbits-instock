@@ -17,7 +17,7 @@ body {
 
 /* Typography*/
 h1 {
-  font-size: 1.75rem;
+  font-size: 1.6rem;
   line-height: 2.25rem;
   font-weight: 600;
 
@@ -52,7 +52,9 @@ h3 {
 h4 {
   font-size: 0.6875rem;
   line-height: 1rem;
-  font-weight: 400;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: $table-header;
 
   @include tablet {
     font-size: 0.75rem;
@@ -60,7 +62,7 @@ h4 {
   }
 }
 
-header {
+.app-header {
   height: 100px;
   background-color: $header-background;
   margin: 0;
@@ -88,9 +90,9 @@ header {
     }
     // the heading below 👇 is for testing purposes
     // and needs to be removed when we start using the real components
-    & h1 {
-      margin: 0;
-      padding-bottom: 5rem;
-    }
+    // & h1 {
+    //   margin: 0;
+    //   padding-bottom: 5rem;
+    // }
   }
 }
