@@ -4,10 +4,14 @@
 
 
 .warehouse-details {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 1rem;
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 1.2rem;  
+    }
+    
 
     @include tablet {
         padding: 1.5rem 2rem;
@@ -41,4 +45,30 @@
             background-position: 1rem;
         }
     }
+
+    &__bottom {
+        padding: 0 1.2rem;
+        border-top: 1px solid $outline-dividers-borders;
+    }
+
+    &__contacts {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 0;
+    }
+
+    &__contacts-left, &__contacts-right{
+        width: 50%;
+    }
+
+    &__label {
+       margin-bottom: 0.25rem;
+       font-size: 0.6rem
+    }
+
+    &__content {
+        @include body-small;
+        margin: 0;
+    }
+
 }
