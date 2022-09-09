@@ -8,7 +8,7 @@ import WarehouseDetailsPage from "./pages/WarehouseDetailsPage";
 function App() {
   return(
     <>
-
+    
       <BrowserRouter>
         <Header />
           <main className="background">
