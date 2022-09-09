@@ -2,40 +2,40 @@ import "./InventoryItem.scss";
 import DeleteIcon from "../../assets/images/delete_outline-24px.svg";
 import EditIcon from "../../assets/images/edit-24px.svg";
 import ArrowRight from "../../assets/images/chevron_right-24px.svg";
+import { Link } from "react-router-dom";
 
 function InventoryItem({inventory}) {
   return (
-    <div>
-        <div>
-            <div>
-                <div>
-                    <h4>Inventory item</h4>
-                    <div>
-                        <p>{inventory.itemName}</p>
-                        <img src={ArrowRight}/>
-                    </div>
+    <div className="inventory-list-container__card card">
+        <div className="card__top">
+            <div className="card__left">
+                <div className="card__key-pair">
+                    <h4 className="card__label">Inventory item</h4>
+                        <Link to="/inventory/:id" className="card__item-name card__title-container">
+                            <p className="card__content ">{inventory.itemName}</p>
+                        <img src={ArrowRight} className="card__title-icon"/>
+                        </Link>
                 </div>
-                <div>
-                    <h4>Category</h4>
-                    <p>{inventory.category}</p>
+                <div className="card__key-pair">
+                    <h4 className="card__label">Category</h4>
+                    <p className="card__content">{inventory.category}</p>
                 </div>
             </div>
-            <div>
-                <div>
-                    <h4>Status</h4>
-                    <p>{inventory.status}</p>
+            <div className="card__right">
+                <div className="card__key-pair">
+                    <h4 className="card__label">Status</h4>
+                    <p className="card__content">{inventory.status}</p>
                 </div>
-                <div>
-                    <h4>Qty</h4>
-                    <p>{inventory.quantity}</p>
+                <div className="card__key-pair">
+                    <h4 className="card__label">Qty</h4>
+                    <p className="card__content">{inventory.quantity}</p>
                 </div>
             </div>
         </div>
-        <div>
-            <img src={DeleteIcon} alt="Delete icon" />
-            <img src={EditIcon} alt="Edit icon"/>
+        <div className="card__bottom">
+            <img className="card__icon" src={DeleteIcon} alt="Delete icon" />
+            <img className="card__icon" src={EditIcon} alt="Edit icon"/>
         </div>
-        
     </div>
   )
 }

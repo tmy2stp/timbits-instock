@@ -1,0 +1,73 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.card {
+    padding: 0 1.5rem; 
+    border-top: 1px solid $outline-dividers-borders;
+        
+    @include tablet {
+        padding: 0 2rem;
+    }
+
+    @include desktop {
+        padding: 0 2.3rem;
+    }
+
+    &__top {
+        display: flex;
+    }
+
+    &__left, &__right {
+        width: 50%;
+    }
+
+    &__right {
+        padding-left: .5rem;
+    }
+
+    &__label {
+        margin-bottom: 0.25rem;
+       font-size: 0.6rem;
+
+       @include tablet {
+            font-size: 0.75rem;
+            margin: 0 0 .5rem;
+       }
+    }
+
+    &__content {
+        @include body-small;
+        margin: 0;
+
+        @include tablet {
+            @include body-medium;
+            margin-bottom: .2rem;
+        }
+    }
+
+    &__item-name {
+        color: $inactive;
+        text-decoration: none;
+    }
+
+    &__title-container {
+        display: flex;
+        align-items: center;
+    }
+
+    &__title-icon {
+        width: 1rem;
+        height: 1rem;
+    }
+
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+        padding: .5rem 0 1rem;
+    }
+
+    &__icon {
+        width: 1.2rem;
+    }
+}

@@ -107,6 +107,14 @@
         }
     }
 
+    &__contacts-right {
+        padding-left: .5rem;
+
+        @include tablet {
+            padding-left: 0;
+        }
+    }
+
     &__label {
        margin-bottom: 0.25rem;
        font-size: 0.6rem;

@@ -26,7 +26,8 @@ function WarehouseInventoryList() {
   }
 
   return (
-    <div>
+    <div className="inventory-list-container">
+      {/* <div></div> */}
       {warehouseInventory.map((inventory)=>{
           return <InventoryItem key={inventory.id} inventory = {inventory}/>
       })}
