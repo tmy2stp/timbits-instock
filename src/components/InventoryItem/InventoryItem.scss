@@ -36,6 +36,10 @@
        }
     }
 
+    &__status-label {
+        margin-bottom: 0.12rem;
+    }
+
     &__content {
         @include body-small;
         margin: 0;
@@ -44,6 +48,18 @@
             @include body-medium;
             margin-bottom: .2rem;
         }
+    }
+
+    &__title {
+        font-weight: 600;
+    }
+
+    &__in-stock {
+        @include in-stock;
+    }
+
+    &__out-of-stock {
+        @include out-of-stock;
     }
 
     &__item-name {
