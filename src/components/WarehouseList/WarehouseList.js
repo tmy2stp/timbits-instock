@@ -34,18 +34,28 @@ function WarehouseList() {
       {allWarehouses.map((warehouse) => {
         return (
           <div className="warehouse__card">
-            <h5>WAREHOUSE</h5>
+            <div className="warehouse__card-item">
+            <h4>WAREHOUSE</h4>
             <h5>{warehouse.name}</h5>
-            <h5>ADDRESS</h5>
-            <h5>{warehouse.address}</h5>
-            <h5>CONTACT NAME</h5>
-            <h5>{warehouse.contact.name}</h5>
-            <h5>CONTACT INFORMATION</h5>
-            <div>
-              <h5>{warehouse.contact.phone}</h5>
-              <h5>{warehouse.contact.email}</h5>
             </div>
-            <div>
+           
+            <div className="warehouse__card-item">
+            <h4>CONTACT NAME</h4>
+            <p>{warehouse.contact.name}</p>
+            
+            </div>
+
+            <div className="warehouse__card-item">
+            <h4>ADDRESS</h4>
+            <p>{warehouse.address}</p>
+            </div>
+          
+            <div className="warehouse__card-item">
+            <h4>CONTACT INFORMATION</h4>
+              <p>{warehouse.contact.phone}</p>
+              <p>{warehouse.contact.email}</p>
+            </div>
+            <div className="warehouse__card-icons">
               <img src={deleteIcon} alt="delete button" />
               <img src={editIcon} alt="edit button" />
             </div>
