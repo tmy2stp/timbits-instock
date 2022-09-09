@@ -1,6 +1,7 @@
 import InventoryFormPage from "./pages/InventoryFormPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.scss";
+import WarehouseDetailsPage from "./pages/WarehouseDetailsPage";
 
 function App() {
   return(
@@ -12,15 +13,15 @@ function App() {
             <div className="background__card">
               <Routes>
               <Route path="/inventory/add-new" element={<InventoryFormPage formType="Add New"/>}/>
-              {/* <Route path="/inventory/edit/:id" element={<InventoryFormPage formType="Edit"/>}/> */}
+              {/*
               {/* <Route path="/" element={}/>
               <Route path="/warehouses" element={}/>
-              <Route path="/warehouses/:id" element={}/>
+              <Route path="/warehouses/warehouse/:id" element={<WarehouseDetailsPage />}/>
               <Route path="/warehouses/edit/:id" element={}/>
               <Route path="/warehouses/add-new" element={}/>
               <Route path="/inventory" element={}/>
               <Route path="/inventory/:id" element={}/>
-              <Route path="/inventory/add-new" element={}/> */}
+              <Route path="/inventory/edit/:id" element={} */}
               </Routes>
             </div>
           </main>
