@@ -6,34 +6,38 @@ import Footer from './components/Footer/Footer.js';
 import WarehouseDetailsPage from "./pages/WarehouseDetailsPage";
 import DeleteModal from "./components/DeleteModal/DeleteModal";
 
+import WarehouseFormPage from "./pages/WarehouseFormPage";
+
+import InventoryList from "./components/InventoryList/InventoryList";
+
+
 function App() {
-  return(
+  return (
     <>
-    <DeleteModal />
+      <DeleteModal />
       {/* <BrowserRouter>
         <Header />
           <main className="background">
             <div className="background__card">
               <Routes>
-              <Route path="/inventory"/>
+
+              <Route path="/"/>
+              <Route path="/inventory" element={<InventoryList />}/>
               <Route path="/warehouses"/>
-              <Route path="/inventory/add-new" element={<InventoryForm formType={"Add New"} />}/>
               <Route path="/warehouses/warehouse/:id" element={<WarehouseDetailsPage />}/>
-              {/* <Route path="/" element={}/>
-    
-              <Route path="/warehouses/edit/:id" element={}/>
-              <Route path="/warehouses/add-new" element={}/>
-              
-              <Route path="/inventory/inventory/:id" element={}/>
-              <Route path="/inventory/edit/:id" element={} */}
-              {/* </Routes>
-            </div>
-          </main>
+              <Route path="/inventory/inventory/:id"/>
+              <Route path="/inventory/add-new" element={<InventoryFormPage formType={"Add New"} />}/>
+              <Route path="/inventory/edit/:id" element={<InventoryFormPage formType={"Edit"}/>} />
+              <Route path="/warehouses/add-new" element={<WarehouseFormPage formType={"Add New"}/>}/>
+              <Route path="/warehouses/edit/:id" element={<WarehouseFormPage formType={"Edit"} />}/>                   
+              </Routes> 
+          </div> 
+          </main> 
           <Footer />
-      </BrowserRouter> */}
+      </BrowserRouter> 
+*/}
     </>
-)}
-//   );
-// } */}
+  )
+}
 
 export default App;
