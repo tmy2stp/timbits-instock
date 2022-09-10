@@ -21,7 +21,7 @@ function InventoryItem({inventory, i, id}) {
                 <h4 className="card__label">Inventory item</h4>
                     <Link to={`/inventory/${id}`} className="card__item-name card__title-container">
                         <p className="card__content card__title ">{inventory.itemName}</p>
-                        <img src={ArrowRight} className="card__title-icon"/>
+                        <img src={ArrowRight} alt="Right arrow" className="card__title-icon"/>
                     </Link>
             </div>
             <div className="card__key-pair card__right card__status">

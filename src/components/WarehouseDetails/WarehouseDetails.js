@@ -21,7 +21,7 @@ function WarehouseDetails() {
                 const selectedWarehouse = response.data;
                 setWarehouseDetails(selectedWarehouse);
             })
-    }, [])
+    }, [id])
 
     //Function that tracks window resizing
     const handleWindowSizeChange = () => {

@@ -19,7 +19,7 @@ function WarehouseInventoryList() {
             const inventories = response.data;
             setWarehouseInventory(inventories);
         })
-  }, [])
+  }, [id])
 
   if(!warehouseInventory) {
     return <p>Loading.....</p>
