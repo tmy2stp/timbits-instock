@@ -1,4 +1,4 @@
-import "./NewWarehouse.scss";
+import "./WarehouseForm.scss";
 import backArrow from "../../assets/images/arrow_back-24px.svg";
 import errorImg from "../../assets/images/error-24px.svg";
 import axios from "axios";
@@ -330,13 +330,13 @@ function NewWarehouse() {
           )}
           <Link
             to="/"
-            className="newWarehouse-form__button newWarehouse-form__button--cancel"
+            className="newWarehouse-form__button button button--cancel"
           >
             Cancel
           </Link>
           <button
             type="submit"
-            className="newWarehouse-form__button newWarehouse-form__button--before"
+            className="newWarehouse-form__button button button--primary"
           >
             + Add Warehouse
           </button>

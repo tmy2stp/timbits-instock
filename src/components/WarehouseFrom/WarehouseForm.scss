@@ -1,6 +1,8 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/typography" as *;
+@use "../../styles/partials/button";
+@use "../../styles/partials/error";
 
 
 .newWarehouse-form {
@@ -97,38 +99,6 @@
             padding: 1rem 2rem;
             margin-top: .5rem;
         }
-    }
-    &__button {
-        @include buttons;
-        border-radius: 1.25rem;
-        background-color: $inactive;
-        border: none;
-        color: $primary-background;
-        padding: .5rem 1rem;
-        flex-grow:1;
-        @include tablet {
-            flex-grow: 0;
-        }
-
-        &--cancel {
-            text-decoration: none;
-            background-color: $primary-background;
-            border: 1px solid $outline-dividers-borders;
-            color: $primary-text;
-            margin-right: 1rem;
-            text-align: center;
-
-            &:hover {
-                border: 1px solid $inactive; 
-            }
-        }
-    }
-
-    &__button--before{
-        &:hover {
-            background-color: $cta-hover; 
-        }
-
     }
     
     &__error {
