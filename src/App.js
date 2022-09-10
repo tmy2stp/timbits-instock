@@ -4,7 +4,11 @@ import "./App.scss";
 import Header from "./components/Header/Header";
 import Footer from './components/Footer/Footer.js';
 import WarehouseDetailsPage from "./pages/WarehouseDetailsPage";
+
 import WarehouseFormPage from "./pages/WarehouseFormPage";
+
+import InventoryList from "./components/InventoryList/InventoryList";
+
 
 function App() {
   return(
@@ -15,8 +19,12 @@ function App() {
           <main className="background">
             <div className="background__card">
               <Routes>
+
               <Route path="/"/>
               <Route path="/inventory"/>
+
+              <Route path="/inventory" element={<InventoryList />}/>
+
               <Route path="/warehouses"/>
               <Route path="/warehouses/warehouse/:id" element={<WarehouseDetailsPage />}/>
               <Route path="/inventory/inventory/:id"/>
