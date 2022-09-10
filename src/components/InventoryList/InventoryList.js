@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import InventoryCard from "../InventoryCard /InventoryCard";
 import "./InventoryList.scss";
 
 function InventoryList() {
@@ -16,7 +17,7 @@ function InventoryList() {
     }, [])
 
     if(!inventory) {
-        <p>Loading...</p>
+        return <p>Loading...</p>
     }
 
     return (
@@ -44,7 +45,9 @@ function InventoryList() {
                 </div>   
             </div>
             <div className="inventory-list__bottom">
-
+                {inventory.map((inventory, i)=>{
+                    return <InventoryCard key={inventory.id} i ={i} id={inventory.id} inventory = {inventory}/>
+                })}
             </div>
         </>
     )
