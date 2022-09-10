@@ -154,9 +154,6 @@ function NewWarehouse() {
       })
       .catch((error) => {
         setIsError(error.response.data.error);
-        // if (isError.length === 0) {
-        //   setIsError("Something went wrong. Try again!");
-        // }
       });
   };
 
