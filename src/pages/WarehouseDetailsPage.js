@@ -5,7 +5,7 @@ function WarehouseDetailsPage() {
   return (
     <>
       <WarehouseDetails />
-      {/* <WarehouseInventoryList /> */}
+      <WarehouseInventoryList />
     </>
   )
 }
