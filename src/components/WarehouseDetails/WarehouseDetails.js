@@ -61,7 +61,7 @@ function WarehouseDetails() {
                     </p>
                     {width<767 ? null : <p className="warehouse-details__content">{warehouseDetails.city}, {warehouseDetails.country}</p>}
                 </div>
-                <div className="warehouse-details__contacts">
+                {/* <div className="warehouse-details__contacts"> */}
                     <div className="warehouse-details__contacts-left">
                         <h4 className="warehouse-details__label">Contact name:</h4>
                         <p className="warehouse-details__content">{warehouseDetails.contact.name}</p>
@@ -72,7 +72,7 @@ function WarehouseDetails() {
                         <p className="warehouse-details__content">{warehouseDetails.contact.phone}</p>
                         <p className="warehouse-details__content">{warehouseDetails.contact.email}</p>
                     </div>
-                </div>
+                {/* </div> */}
             </div>
         </>
     )

@@ -5,25 +5,59 @@
 .card {
     padding: 0 1.5rem; 
     border-top: 1px solid $outline-dividers-borders;
+    display: flex;
+    flex-wrap: wrap;
         
     @include tablet {
-        padding: 0 2rem;
+        padding: 1rem 2rem;
+        flex-wrap: nowrap;
     }
 
     @include desktop {
         padding: 0 2.3rem;
     }
 
-    &__top {
-        display: flex;
-    }
-
-    &__left, &__right {
-        width: 50%;
-    }
-
     &__right {
         padding-left: .5rem;
+
+        @include tablet {
+            padding-left: 0;
+        }
+    }
+
+    &__key-pair {
+        width: 50%;
+
+        @include tablet {
+            width: fit-content;
+            height: fit-content;
+        }
+    }
+
+    &__item {
+        @include tablet {
+            order: -2;
+            width: 24%;
+        }
+    }
+
+    &__category {
+        @include tablet {
+            order: -1;
+            width: 19%;
+        }
+    }
+
+    &__status {
+        @include tablet {
+            width: 30.2%;
+        }
+    }
+
+    &__qty {
+        @include tablet {
+            width: 18.8%;
+        }
     }
 
     &__label {
@@ -31,8 +65,7 @@
        font-size: 0.6rem;
 
        @include tablet {
-            font-size: 0.75rem;
-            margin: 0 0 .5rem;
+            display: none;
        }
     }
 
@@ -81,6 +114,12 @@
         display: flex;
         justify-content: space-between;
         padding: .5rem 0 1rem;
+        width: 100%;
+
+        @include tablet {
+            padding: 0;
+            width: 8%;
+        }
     }
 
     &__icon {
