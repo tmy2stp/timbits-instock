@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import backArrow from "../../assets/images/arrow_back-24px.svg";
 import errorImg from "../../assets/images/error-24px.svg";
 import "./InventoryForm.scss";
 
-function AddNewInventory() {
+function EditInventory() {
   //create states to dynamically generate warehouse names list and categories list
   const [warehouseNames, setWarehouseNames] = useState([]);
   const [inventoryCategories, setInventoryCategories] = useState([]);
@@ -30,6 +30,9 @@ function AddNewInventory() {
   //create state generate success message
   const [success, setSuccess] = useState(false);
 
+  //get the id from the url
+  const paramId = useParams();
+
   //call the warehouse names and the inventory categories from the api
   useEffect(() => {
     axios
@@ -40,19 +43,33 @@ function AddNewInventory() {
       })
       .then((response) => {
         setInventoryCategories(response.data);
+        return axios.get(`http://localhost:8080/inventories/inventory/${paramId.id}`)
+      })
+      .then((response)=>{
+        setItemName(response.data.itemName)
+        setItemDescription(response.data.description)
+        setSelectedCategory(response.data.category)
+        if(response.data.status === "In Stock"){
+            setInStock(true)
+        }
+        if(response.data.status === "Out of Stock"){
+            setInStock(false)
+        }
+        setItemQuantity(response.data.quantity)
+        setSelectedWarehouse(response.data.warehouseName)
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [paramId.id]);
 
   //handle change functions to control the form elements
   const handleChangeSelectedWarehouse = (event) => {
     if (warehouseError) {
       setWarehouseError(false);
     }
-    if (errorMessage.length>0){
-      setErrorMessage("")
+    if (errorMessage.length > 0) {
+      setErrorMessage("");
     }
     setSelectedWarehouse(event.target.value);
   };
@@ -61,8 +78,8 @@ function AddNewInventory() {
     if (categoryError) {
       setCategoryError(false);
     }
-    if (errorMessage.length>0){
-      setErrorMessage("")
+    if (errorMessage.length > 0) {
+      setErrorMessage("");
     }
     setSelectedCategory(event.target.value);
   };
@@ -71,8 +88,8 @@ function AddNewInventory() {
     if (statusError) {
       setStatusError(false);
     }
-    if (errorMessage.length>0){
-      setErrorMessage("")
+    if (errorMessage.length > 0) {
+      setErrorMessage("");
     }
     setInStock(true);
   };
@@ -81,8 +98,8 @@ function AddNewInventory() {
     if (statusError) {
       setStatusError(false);
     }
-    if (errorMessage.length>0){
-      setErrorMessage("")
+    if (errorMessage.length > 0) {
+      setErrorMessage("");
     }
     setInStock(false);
   };
@@ -91,8 +108,8 @@ function AddNewInventory() {
     if (nameError) {
       setNameError(false);
     }
-    if (errorMessage.length>0){
-      setErrorMessage("")
+    if (errorMessage.length > 0) {
+      setErrorMessage("");
     }
     setItemName(event.target.value);
   };
@@ -101,8 +118,8 @@ function AddNewInventory() {
     if (descriptionError) {
       setDescriptionError(false);
     }
-    if (errorMessage.length>0){
-      setErrorMessage("")
+    if (errorMessage.length > 0) {
+      setErrorMessage("");
     }
     setItemDescription(event.target.value);
   };
@@ -111,8 +128,8 @@ function AddNewInventory() {
     if (quantityError) {
       setQuantityError(false);
     }
-    if (errorMessage.length>0){
-      setErrorMessage("")
+    if (errorMessage.length > 0) {
+      setErrorMessage("");
     }
     setItemQuantity(event.target.value);
   };
@@ -170,19 +187,21 @@ function AddNewInventory() {
       quantity: quantity,
     };
     axios
-      .post("http://localhost:8080/inventories/", newInventoryItem)
+      .put(`http://localhost:8080/inventories/inventory/${paramId.id}`, newInventoryItem)
       .then(() => {
         setSuccess(true);
-        setTimeout(()=>{
-          setSuccess(false)
-        }, 3000)
+        if(errorMessage.length>0){
+            setErrorMessage("")
+        }
+        setTimeout(() => {
+          setSuccess(false);
+        }, 3000);
       })
       .catch((error) => {
-        setErrorMessage(error.response.data)
-        if (errorMessage.length===0){
-          setErrorMessage("Something went wrong. Try again!")
+        setErrorMessage(error.response.data);
+        if (errorMessage.length === 0) {
+          setErrorMessage("Something went wrong. Try again!");
         }
-
       });
   };
 
@@ -199,7 +218,7 @@ function AddNewInventory() {
           src={backArrow}
           alt="arrow to navigate back"
         />
-        <h1 className="inventory-form__title">Add New Inventory Item</h1>
+        <h1 className="inventory-form__title">Edit Inventory Item</h1>
       </header>
       <form onSubmit={handleSubmit} className="inventory-form__form">
         <div className="inventory-form__section inventory-form__section--left">
@@ -371,18 +390,23 @@ function AddNewInventory() {
           </label>
         </div>
         <footer className="inventory-form__footer">
-        {success && <p className="inventory-form__success">Item Added</p>}
-        {errorMessage.length>0 && <p className="inventory-form__success inventory-form__success--error">{errorMessage}</p>}
-          <Link 
+          {success && <p className="inventory-form__success">Item Added</p>}
+          {errorMessage.length > 0 && (
+            <p className="inventory-form__success inventory-form__success--error">
+              {errorMessage}
+            </p>
+          )}
+          <Link
             to="/"
-            className="inventory-form__button inventory-form__button--cancel">
+            className="inventory-form__button inventory-form__button--cancel"
+          >
             Cancel
           </Link>
           <button
             type="submit"
             className="inventory-form__button inventory-form__button--before"
           >
-            + Add Item
+            Save
           </button>
         </footer>
       </form>
@@ -390,4 +414,4 @@ function AddNewInventory() {
   );
 }
 
-export default AddNewInventory;
+export default EditInventory;
