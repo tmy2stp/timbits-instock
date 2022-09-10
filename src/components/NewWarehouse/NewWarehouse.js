@@ -42,6 +42,7 @@ function NewWarehouse() {
     if (addressError) {
       setAddressError(false);
     }
+
     setAddress(event.target.value);
   };
 
@@ -49,6 +50,7 @@ function NewWarehouse() {
     if (cityError) {
       setCityError(false);
     }
+
     setCity(event.target.value);
   };
 
@@ -56,6 +58,7 @@ function NewWarehouse() {
     if (countryError) {
       setCountryError(false);
     }
+
     setCountry(event.target.value);
   };
 
@@ -63,6 +66,7 @@ function NewWarehouse() {
     if (managerNameError) {
       setManagerNameError(false);
     }
+
     setManagerName(event.target.value);
   };
 
@@ -70,6 +74,7 @@ function NewWarehouse() {
     if (managerPositionError) {
       setManagerPositionError(false);
     }
+
     setManagerPosition(event.target.value);
   };
 
@@ -77,6 +82,7 @@ function NewWarehouse() {
     if (managerPhoneError) {
       setManagerPhoneError(false);
     }
+
     setManagerPhone(event.target.value);
   };
 
@@ -84,6 +90,7 @@ function NewWarehouse() {
     if (managerEmailError) {
       setManagerEmailError(false);
     }
+
     setManagerEmail(event.target.value);
   };
 
@@ -138,7 +145,7 @@ function NewWarehouse() {
         })
         .catch((error) => {
           setIsError(error.response.data.error);
-          console.log(error.response.data);
+          console.log(error.response.data.error);
         });
     } else {
       setNameError(true);
