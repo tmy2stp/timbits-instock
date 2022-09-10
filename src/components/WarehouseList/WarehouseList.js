@@ -1,8 +1,10 @@
 import "./WarehouseList.scss";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import deleteIcon from '../../assets/images/delete_outline-24px.svg'
-import editIcon from  '../../assets/images/edit-24px.svg'
+import deleteIcon from "../../assets/images/delete_outline-24px.svg";
+import editIcon from "../../assets/images/edit-24px.svg";
+import chevronRight from "../../assets/images/chevron_right-24px.svg";
+import { Link } from 'react-router-dom';
 
 function WarehouseList() {
   const [allWarehouses, setAllWarehouses] = useState([]);
@@ -35,25 +37,31 @@ function WarehouseList() {
         return (
           <div className="warehouse__card">
             <div className="warehouse__card-item">
-            <h4>WAREHOUSE</h4>
-            <h5>{warehouse.name}</h5>
-            </div>
-           
-            <div className="warehouse__card-item">
-            <h4>CONTACT NAME</h4>
-            <p>{warehouse.contact.name}</p>
-            
+              <h4 className="warehouse__card-title warehouse__card-title--name">
+                WAREHOUSE
+              </h4>
+              <Link to={"/"} className="warehouse__card-link warehouse__card-info">
+                {warehouse.name} 
+                {<img className="warehouse__card-arrow" src={chevronRight} alt="right arrow" />}
+              </Link>
             </div>
 
             <div className="warehouse__card-item">
-            <h4>ADDRESS</h4>
-            <p>{warehouse.address}</p>
+              <h4 className="warehouse__card-title">CONTACT NAME</h4>
+              <p className="warehouse__card-info">{warehouse.contact.name}</p>
             </div>
-          
+
             <div className="warehouse__card-item">
-            <h4>CONTACT INFORMATION</h4>
-              <p>{warehouse.contact.phone}</p>
-              <p>{warehouse.contact.email}</p>
+              <h4 className="warehouse__card-title">ADDRESS</h4>
+              <p className="warehouse__card-info">
+                {warehouse.address}, {warehouse.city}, {warehouse.country}
+              </p>
+            </div>
+
+            <div className="warehouse__card-item">
+              <h4 className="warehouse__card-title">CONTACT INFORMATION</h4>
+              <p className="warehouse__card-info">{warehouse.contact.phone}</p>
+              <p className="warehouse__card-info">{warehouse.contact.email}</p>
             </div>
             <div className="warehouse__card-icons">
               <img src={deleteIcon} alt="delete button" />
