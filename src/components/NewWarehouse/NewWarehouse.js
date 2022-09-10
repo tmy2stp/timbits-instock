@@ -35,12 +35,18 @@ function NewWarehouse() {
     if (nameError) {
       setNameError(false);
     }
+    if (isError) {
+      setIsError(false);
+    }
     setName(event.target.value);
   };
 
   const handleChangeAddress = (event) => {
     if (addressError) {
       setAddressError(false);
+    }
+    if (isError) {
+      setIsError(false);
     }
 
     setAddress(event.target.value);
@@ -50,6 +56,9 @@ function NewWarehouse() {
     if (cityError) {
       setCityError(false);
     }
+    if (isError) {
+      setIsError(false);
+    }
 
     setCity(event.target.value);
   };
@@ -57,6 +66,9 @@ function NewWarehouse() {
   const handleChangeCountry = (event) => {
     if (countryError) {
       setCountryError(false);
+    }
+    if (isError) {
+      setIsError(false);
     }
 
     setCountry(event.target.value);
@@ -66,6 +78,9 @@ function NewWarehouse() {
     if (managerNameError) {
       setManagerNameError(false);
     }
+    if (isError) {
+      setIsError(false);
+    }
 
     setManagerName(event.target.value);
   };
@@ -73,6 +88,9 @@ function NewWarehouse() {
   const handleChangePosition = (event) => {
     if (managerPositionError) {
       setManagerPositionError(false);
+    }
+    if (isError) {
+      setIsError(false);
     }
 
     setManagerPosition(event.target.value);
@@ -82,6 +100,9 @@ function NewWarehouse() {
     if (managerPhoneError) {
       setManagerPhoneError(false);
     }
+    if (isError) {
+      setIsError(false);
+    }
 
     setManagerPhone(event.target.value);
   };
@@ -89,6 +110,9 @@ function NewWarehouse() {
   const handleChangeEmail = (event) => {
     if (managerEmailError) {
       setManagerEmailError(false);
+    }
+    if (isError) {
+      setIsError(false);
     }
 
     setManagerEmail(event.target.value);
@@ -307,7 +331,7 @@ function NewWarehouse() {
               className={`newWarehouse-form__input ${
                 managerEmailError ? "newWarehouse-form__input--error" : ""
               }`}
-              type="email"
+              type="text"
               placeholder="Email"
               onChange={handleChangeEmail}
               value={managerEmail}
