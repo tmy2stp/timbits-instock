@@ -109,6 +109,7 @@
         @include tablet {
             flex-grow: 0;
         }
+
         &--cancel {
             text-decoration: none;
             background-color: $primary-background;
@@ -116,8 +117,20 @@
             color: $primary-text;
             margin-right: 1rem;
             text-align: center;
+
+            &:hover {
+                border: 1px solid $inactive; 
+            }
         }
     }
+
+    &__button--before{
+        &:hover {
+            background-color: $cta-hover; 
+        }
+
+    }
+    
     &__error {
         color: $error-state;
         @include body-small;

@@ -7,7 +7,7 @@ import { useState } from "react";
 const API_URL = "http://localhost:8080";
 
 function NewWarehouse() {
-  // const [visibleItem, setVisibleItem] = useState("");
+  // Set State
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
@@ -17,7 +17,7 @@ function NewWarehouse() {
   const [managerPhone, setManagerPhone] = useState("");
   const [managerEmail, setManagerEmail] = useState("");
 
-  //create states to dynamically generate error messages
+  //States to generate error messages
   const [nameError, setNameError] = useState(false);
   const [addressError, setAddressError] = useState(false);
   const [cityError, setCityError] = useState(false);
@@ -31,13 +31,13 @@ function NewWarehouse() {
   const [success, setSuccess] = useState(false);
   const [isError, setIsError] = useState("");
 
+  //handle change to control the form elements
   const handleChangeName = (event) => {
     if (nameError) {
       setNameError(false);
     }
-    if (isError) {
-      setIsError(false);
-    }
+    setIsError("");
+
     setName(event.target.value);
   };
 
@@ -45,9 +45,7 @@ function NewWarehouse() {
     if (addressError) {
       setAddressError(false);
     }
-    if (isError) {
-      setIsError(false);
-    }
+    setIsError("");
 
     setAddress(event.target.value);
   };
@@ -56,9 +54,7 @@ function NewWarehouse() {
     if (cityError) {
       setCityError(false);
     }
-    if (isError) {
-      setIsError(false);
-    }
+    setIsError("");
 
     setCity(event.target.value);
   };
@@ -67,9 +63,7 @@ function NewWarehouse() {
     if (countryError) {
       setCountryError(false);
     }
-    if (isError) {
-      setIsError(false);
-    }
+    setIsError("");
 
     setCountry(event.target.value);
   };
@@ -78,9 +72,7 @@ function NewWarehouse() {
     if (managerNameError) {
       setManagerNameError(false);
     }
-    if (isError) {
-      setIsError(false);
-    }
+    setIsError("");
 
     setManagerName(event.target.value);
   };
@@ -89,9 +81,7 @@ function NewWarehouse() {
     if (managerPositionError) {
       setManagerPositionError(false);
     }
-    if (isError) {
-      setIsError(false);
-    }
+    setIsError("");
 
     setManagerPosition(event.target.value);
   };
@@ -100,9 +90,7 @@ function NewWarehouse() {
     if (managerPhoneError) {
       setManagerPhoneError(false);
     }
-    if (isError) {
-      setIsError(false);
-    }
+    setIsError("");
 
     setManagerPhone(event.target.value);
   };
@@ -111,30 +99,12 @@ function NewWarehouse() {
     if (managerEmailError) {
       setManagerEmailError(false);
     }
-    if (isError) {
-      setIsError(false);
-    }
+    setIsError("");
 
     setManagerEmail(event.target.value);
   };
 
-  // created form validation
-  const isFormValid = () => {
-    if (
-      !name ||
-      !address ||
-      !city ||
-      !managerPhone ||
-      !country ||
-      !managerName ||
-      !managerPosition ||
-      !managerEmail
-    ) {
-      return false;
-    }
-    return true;
-  };
-
+  //created new warehouse object to send back to the backend
   const newWarehouse = {
     name: name,
     address: address,
@@ -148,39 +118,44 @@ function NewWarehouse() {
     },
   };
 
+  //function to handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (isFormValid()) {
-      axios
-        .post(API_URL + "/warehouses", newWarehouse)
-        .then((response) => {
-          console.log(response.data);
-          // setVisibleItem("message");
-          setSuccess(true);
-          setName("");
-          setAddress("");
-          setCity("");
-          setCountry("");
-          setManagerPhone("");
-          setManagerName("");
-          setManagerPosition("");
-          setManagerEmail("");
-        })
-        .catch((error) => {
-          setIsError(error.response.data.error);
-          console.log(error.response.data.error);
-        });
-    } else {
+    if (!name) {
       setNameError(true);
+    }
+    if (!address) {
       setAddressError(true);
+    }
+    if (!city) {
       setCityError(true);
+    }
+    if (!country) {
       setCountryError(true);
+    }
+    if (!managerName) {
       setManagerNameError(true);
+    }
+    if (!managerPhone) {
       setManagerPhoneError(true);
+    }
+    if (!managerEmail) {
       setManagerEmailError(true);
+    }
+    if (!managerPosition) {
       setManagerPositionError(true);
     }
+
+    axios
+      .post(API_URL + "/warehouses", newWarehouse)
+      .then((response) => {
+        setSuccess(true);
+      })
+      .catch((error) => {
+        setIsError(error.response.data.error);
+        console.log(error.response.data.error);
+      });
   };
 
   return (
