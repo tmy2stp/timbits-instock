@@ -11,10 +11,11 @@
     @include tablet {
         padding: 1rem 2rem;
         flex-wrap: nowrap;
+        align-items: center;
     }
 
     @include desktop {
-        padding: 0 2.3rem;
+        padding: 1rem 2.3rem;
     }
 
     &__right {
@@ -37,27 +38,32 @@
     &__item {
         @include tablet {
             order: -2;
-            width: 24%;
+            width: 25%;
         }
     }
 
     &__category {
         @include tablet {
             order: -1;
-            width: 19%;
+            width: 15%;
         }
     }
 
     &__status {
         @include tablet {
-            width: 30.2%;
+            width: 30%;
+            padding: 0 1.25rem;
         }
     }
 
     &__qty {
         @include tablet {
-            width: 18.8%;
+            width: 21%;
         }
+
+        // @include desktop {
+        //     width: 23%;
+        // }
     }
 
     &__label {
@@ -118,11 +124,21 @@
 
         @include tablet {
             padding: 0;
-            width: 8%;
+            width: 9%;
+            justify-content: end;
         }
+
+        // @include desktop {
+        //     width: 7%;
+        // }
     }
 
     &__icon {
         width: 1.2rem;
+
+        @include tablet {
+            width: 1.4rem;
+            margin-left: 1rem;
+        }
     }
 }

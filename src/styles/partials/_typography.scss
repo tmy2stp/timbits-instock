@@ -64,9 +64,9 @@
   font-weight: 600;
   font-size: .6rem;
 
-  // @include tablet {
-
-  // }
+  @include tablet {
+    font-size: .7rem;
+  }
 }
 
 @mixin out-of-stock {
@@ -79,7 +79,7 @@
   font-weight: 600;
   font-size: .6rem;
 
-  // @include tablet {
-
-  // }
+  @include tablet {
+    font-size: .7rem;
+  }
 }
