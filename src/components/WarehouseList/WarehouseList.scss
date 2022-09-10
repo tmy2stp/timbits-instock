@@ -1,55 +1,118 @@
-@use '../../styles/partials/mixins' as *;
-@use '../../styles/partials/typography' as *;
-@use '../../styles/partials/variables' as *;
-
-
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
 
 .warehouse {
-   &__header {
+  &__header {
     padding-top: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
     border-bottom: 1px solid $outline-dividers-borders;
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-formbtn {
+      @include tablet {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 60%;
+      }
+    }
 
     &-input {
-        width: 100%;
-        padding: .3rem 1rem;
-        margin-top: .25rem;
-        margin-bottom: 1rem;
-        border-radius: 1.25rem;
-        outline: none;
-        border: 1px solid $outline-dividers-borders;
-        font-family: $titillium-web;
-        background-image: url('../../assets/images/search-24px.svg'); 
-        background-repeat: no-repeat; 
-        background-position: center;
-        background-position: right; 
-              
-        @include body-medium;
-        &:focus {
-            border-color: $inactive;
-        }
-    }
+      width: 100%;
+      padding: 0.3rem 1rem;
+      margin-top: 0.25rem;
+      margin-bottom: 1rem;
+      border-radius: 1.25rem;
+      outline: none;
+      border: 1px solid $outline-dividers-borders;
+      font-family: $titillium-web;
+      background-image: url("../../assets/images/search-24px.svg");
+      background-repeat: no-repeat;
+      background-position: center right 8%;
     
+
+      @include body-medium;
+      &:focus {
+        border-color: $inactive;
+      }
+
+      @include tablet {
+        margin: 0;
+      }
+    }
 
     &-button {
-        width: 100%;
-        @include buttons;
-        border-radius: 1.25rem;
-        background-color: $inactive;
-        border: none;
-        margin-bottom: 1rem;
-        color: $primary-background;
-        padding: .5rem 1rem;
-        flex-basis: 50%;
+      width: 100%;
+      @include buttons;
+      border-radius: 1.25rem;
+      background-color: $inactive;
+      border: none;
+      margin-bottom: 1rem;
+      color: $primary-background;
+      padding: 0.4rem 1rem;
+      flex-basis: 50%;
+      @include tablet {
+        flex-basis: auto;
+        width: 45%;
+        margin: 0;
+      }
+    }
+  }
+
+  &__subheaders {
+    display: none;
+    @include tablet {
+        display: flex;
+    }
+  }
+
+  &__subheader{
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-color: $table-header-background;
+    
+    @include tablet {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 22%
+        
+     }
+
+    &-text {
+        
         @include tablet {
-            flex-basis: auto;
+            display: flex;
+            margin: 0;
+            @include body-small;
+        }
+     }
+
+     &-arrows {
+        height: 1rem;
+        width: 1rem;
+     }
+
+    &-icons {
+        @include tablet {
+            width: 8%;
+            padding-left: 0;
         }
     }
-   }
 
-   &__card {
-    
+    &--info {
+        width: 25%;
+    }
+   
+  }
+
+  &__card {
     border-bottom: 1px solid $outline-dividers-borders;
     display: flex;
     flex-wrap: wrap;
@@ -57,38 +120,89 @@
     @include body-small;
 
     &-title {
-        margin-bottom: 0;
-        margin-top: 0;
+      margin-bottom: 0;
+      margin-top: 0;
+      @include tablet {
+        display: none;
+      }
+
+     
     }
 
     &-info {
-        margin: 0;
+      margin: 0;
+      width: 80%;
+      @include tablet {
+        width: 65%;
+      }
+      @include desktop {
         width: 80%;
+      }
     }
 
     &-link {
-        color: $inactive;
-        text-decoration: none;
-        font-weight: 700;
-        display: flex;
+      color: $inactive;
+      text-decoration: none;
+      font-weight: 700;
+      display: flex;
     }
+    &-link:hover {
+       text-decoration: underline;
+      }
 
     &-arrow {
-        height: 1rem;
-        width: 1rem;
+      height: 1rem;
+      width: 1rem;
     }
 
     &-item {
-        width: 50%;
-        margin-bottom: 0.5rem;
+      width: 50%;
+      margin-bottom: 0.5rem;
+      @include tablet {
+        width: 23%;
+      }
+      &--warehouse {
+        @include tablet {
+            order: 0;
+        }
+      }
+
+      &--address {
+        @include tablet {
+            order: 1;
+        }
+      }
+
+      &--contact {
+        @include tablet {
+            order: 2;
+        }
+      }
+      &--info {
+        @include tablet {
+            order: 3;
+        }
+      }
+      &--icons {
+        @include tablet {
+            order: 4;
+        }
+      }
     }
 
     &-icons {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @include tablet {
+        justify-content: space-around;
+        width: 8%;
+      }
     }
-
-   }
-
+    &-icon {
+        width: 1rem;
+        height: 1rem;
+    }
+  }
 }
