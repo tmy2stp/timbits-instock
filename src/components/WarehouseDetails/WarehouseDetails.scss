@@ -52,14 +52,21 @@
             height: 2.375rem;
             background-position: 1rem;
         }
+
+        @include desktop {
+            
+        }
     }
 
     &__bottom {
         padding: 0 1.5rem;
         border-top: 1px solid $outline-dividers-borders;
+        display: flex;
+        flex-wrap: wrap;
+        border-bottom: 1px solid $outline-dividers-borders;
 
         @include tablet {
-            display: flex;
+            border-bottom: 0;
             padding: 0 2rem;
         }
 
@@ -68,42 +75,42 @@
         }
     }
 
-    &__address {
-        @include tablet {
-            width: 40%;
-        }
-    }
-
-    &__contacts {
-        display: flex;
-        justify-content: space-between;
-        padding: 1rem 0;
-
-        @include tablet {
-            padding: 0;
-            width: 60%;
-            border-left: 1px solid $outline-dividers-borders;
-            justify-content: flex-start;
-        }
-    }
-
-    &__address, &__contacts {
+    &__contacts-left, &__contacts-right, &__address {
         @include tablet {
             margin: 1.5rem 0;
         }
     }
 
+    &__address {
+        flex-basis: 100%;
+        @include tablet {
+            flex-basis: 40%;
+            border-right: 1px solid $outline-dividers-borders;
+        }
+    }
+
     &__contacts-left, &__contacts-right{
-        width: 50%;
+        flex-basis: 50%;
+        padding: 1rem 0;
+
 
         @include tablet {
-            width: 45%;
+            flex-basis: 30%;
+            padding: 0;
         }
     }
 
     &__contacts-left {
         @include tablet {
-            margin-left: 2.5rem;
+            padding-left: 2.5rem;
+        }
+    }
+
+    &__contacts-right {
+        padding-left: .5rem;
+
+        @include tablet {
+            padding-left: 0;
         }
     }
 

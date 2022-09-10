@@ -1,11 +1,11 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/typography" as *;
-@use "../../styles/partials/error";
 @use "../../styles/partials/button";
+@use "../../styles/partials/error";
 
 
-.inventory-form {
+.newWarehouse-form {
     &__header {
         flex-basis: 100%;
         display: flex;
@@ -81,45 +81,10 @@
         &:focus {
             border-color: $inactive;
         }
-        &--textarea {
-            resize: none;
-            height: 6rem;
-            @include tablet {
-                height: 8rem;
-            }
-        }
-        &--select {
-            color: $place-holder;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            &::-ms-expand {
-                display: none;
-           }
-            background-image: url("../../assets/images/arrow_drop_down-24px.svg");
-            background-repeat: no-repeat;
-            background-position: 95% 50%;
-        }
-        &--quantity {
-            @include tablet {
-                width: 30%;
-                &::-webkit-inner-spin-button{
-                    -webkit-appearance: none;
-                    margin: 0;
-                }    
-            }
-        }
+
         &--error {
             border: 1px solid $error-state;
         }
-    }
-    &__radio {
-        margin-right: .5rem;
-        transform: translateY(2px);
-    }
-    &__radio-label {
-        @include body-medium;
-        margin-right: 2rem;
     }
 
     &__footer {
@@ -128,7 +93,6 @@
         padding: 1rem;
         display: flex;
         justify-content: flex-end;
-        align-items: center;
         margin-top: 1.5rem;
         flex-wrap: wrap;
         @include tablet {
@@ -136,20 +100,20 @@
             margin-top: .5rem;
         }
     }
-    &__success {
+    
+    &__error {
+        color: $error-state;
         @include body-small;
-        color: $in-stock-label;
         flex-basis: 100%;
         justify-self: flex-end;
-        text-align: center;
+        text-align: end;
         font-style: italic;
         margin: .5rem;
-        @include tablet {
-            text-align: end;
-        }
-        &--error{
-            color: $out-of-stock-label
+
+        &--success {
+            color: $in-stock-label;
         }
     }
 
 }
+
