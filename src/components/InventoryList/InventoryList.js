@@ -13,7 +13,7 @@ function InventoryList() {
             .then((response)=>{
                 setInventory(response.data);
             })
-    }, [id])
+    }, [])
 
     if(!inventory) {
         <p>Loading...</p>
@@ -26,14 +26,14 @@ function InventoryList() {
                     <h1 className="inventory-list__title">Inventory</h1>
                 </div>
                 <div className="inventory-list__right">
-                    {/* <form> */}
+                    <form className="inventory-list__form">
                     <input
                         name="search"
                         type="text"
                         placeholder="Search..."
                         className={`inventory-list__input`}
                     />
-                    {/* </form> */}
+                    </form>
                     <Link 
                         to={`/inventory/add-new`} 
                         className="inventory-list__link">
