@@ -35,7 +35,6 @@
       background-image: url("../../assets/images/search-24px.svg");
       background-repeat: no-repeat;
       background-position: center right 8%;
-    
 
       @include body-medium;
       &:focus {
@@ -68,48 +67,45 @@
   &__subheaders {
     display: none;
     @include tablet {
-        display: flex;
+      display: flex;
     }
   }
 
-  &__subheader{
+  &__subheader {
     width: 100%;
     padding: 0.5rem 1rem;
     background-color: $table-header-background;
-    
+
     @include tablet {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        width: 22%
-        
-     }
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 22%;
+    }
 
     &-text {
-        
-        @include tablet {
-            display: flex;
-            margin: 0;
-            @include body-small;
-        }
-     }
+      @include tablet {
+        display: flex;
+        margin: 0;
+        @include body-small;
+      }
+    }
 
-     &-arrows {
-        height: 1rem;
-        width: 1rem;
-     }
+    &-arrows {
+      height: 1rem;
+      width: 1rem;
+    }
 
     &-icons {
-        @include tablet {
-            width: 8%;
-            padding-left: 0;
-        }
+      @include tablet {
+        width: 8%;
+        padding-left: 0;
+      }
     }
 
     &--info {
-        width: 25%;
+      width: 25%;
     }
-   
   }
 
   &__card {
@@ -125,8 +121,6 @@
       @include tablet {
         display: none;
       }
-
-     
     }
 
     &-info {
@@ -147,8 +141,8 @@
       display: flex;
     }
     &-link:hover {
-       text-decoration: underline;
-      }
+      text-decoration: underline;
+    }
 
     &-arrow {
       height: 1rem;
@@ -163,29 +157,29 @@
       }
       &--warehouse {
         @include tablet {
-            order: 0;
+          order: 0;
         }
       }
 
       &--address {
         @include tablet {
-            order: 1;
+          order: 1;
         }
       }
 
       &--contact {
         @include tablet {
-            order: 2;
+          order: 2;
         }
       }
       &--info {
         @include tablet {
-            order: 3;
+          order: 3;
         }
       }
       &--icons {
         @include tablet {
-            order: 4;
+          order: 4;
         }
       }
     }
@@ -201,8 +195,11 @@
       }
     }
     &-icon {
-        width: 1rem;
-        height: 1rem;
+      width: 1rem;
+      height: 1rem;
     }
+    &-icon:hover {
+       cursor: pointer;
+      }
   }
 }

@@ -26,7 +26,7 @@ function App() {
 
               <Route path="/inventory" element={<InventoryList />}/>
 
-              <Route path="/warehouses"/>
+              <Route path="/warehouses" element={<WarehouseListPage/>}/>
               <Route path="/warehouses/warehouse/:id" element={<WarehouseDetailsPage />}/>
               <Route path="/inventory/inventory/:id"/>
               <Route path="/inventory/add-new" element={<InventoryFormPage formType={"Add New"} />}/>

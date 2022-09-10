@@ -5,14 +5,14 @@ import deleteIcon from "../../assets/images/delete_outline-24px.svg";
 import editIcon from "../../assets/images/edit-24px.svg";
 import chevronRight from "../../assets/images/chevron_right-24px.svg";
 import { Link } from "react-router-dom";
-import sortArrows from '../../assets/images/sort-24px.svg';
+import sortArrows from "../../assets/images/sort-24px.svg";
 
 function WarehouseList() {
   const [allWarehouses, setAllWarehouses] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const URL = "http://localhost:8080/warehouses";
 
-  function handleClick () {
+  function handleClick() {
     setIsOpen(true);
     console.log(isOpen);
   }
@@ -46,16 +46,44 @@ function WarehouseList() {
       </header>
       <div className="warehouse__subheaders">
         <div className="warehouse__subheader">
-          <h4 className="warehouse__subheader-text">WAREHOUSE <img className="warehouse__subheader-arrows" src={sortArrows} alt="sorting arrows" /></h4>
+          <h4 className="warehouse__subheader-text">
+            WAREHOUSE{" "}
+            <img
+              className="warehouse__subheader-arrows"
+              src={sortArrows}
+              alt="sorting arrows"
+            />
+          </h4>
         </div>
         <div className="warehouse__subheader">
-          <h4 className="warehouse__subheader-text">ADDRESS <img className="warehouse__subheader-arrows" src={sortArrows} alt="sorting arrows" /></h4>
+          <h4 className="warehouse__subheader-text">
+            ADDRESS{" "}
+            <img
+              className="warehouse__subheader-arrows"
+              src={sortArrows}
+              alt="sorting arrows"
+            />
+          </h4>
         </div>
         <div className="warehouse__subheader">
-          <h4 className="warehouse__subheader-text">CONTACT NAME <img className="warehouse__subheader-arrows" src={sortArrows} alt="sorting arrows" /></h4>
+          <h4 className="warehouse__subheader-text">
+            CONTACT NAME{" "}
+            <img
+              className="warehouse__subheader-arrows"
+              src={sortArrows}
+              alt="sorting arrows"
+            />
+          </h4>
         </div>
         <div className="warehouse__subheader warehouse__subheader--info">
-          <h4 className="warehouse__subheader-text ">CONTACT INFORMATION <img className="warehouse__subheader-arrows" src={sortArrows} alt="sorting arrows" /></h4>
+          <h4 className="warehouse__subheader-text ">
+            CONTACT INFORMATION{" "}
+            <img
+              className="warehouse__subheader-arrows"
+              src={sortArrows}
+              alt="sorting arrows"
+            />
+          </h4>
         </div>
         <div className="warehouse__subheader warehouse__subheader-icons">
           <h4 className="warehouse__subheader-text">ACTIONS</h4>
@@ -101,16 +129,19 @@ function WarehouseList() {
               <p className="warehouse__card-info">{warehouse.contact.email}</p>
             </div>
             <div className="warehouse__card-icons warehouse__card-item--icons">
-              <img onClick={handleClick}
+              <img
+                onClick={handleClick}
                 className="warehouse__card-icon"
                 src={deleteIcon}
                 alt="delete button"
               />
-              <img
-                className="warehouse__card-icon"
-                src={editIcon}
-                alt="edit button"
-              />
+              <Link to={`/warehouses/edit/${warehouse.id}`}>
+                <img
+                  className="warehouse__card-icon"
+                  src={editIcon}
+                  alt="edit button"
+                />
+              </Link>
             </div>
           </div>
         );
