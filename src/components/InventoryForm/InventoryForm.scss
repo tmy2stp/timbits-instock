@@ -127,7 +127,9 @@
         padding: 1rem;
         display: flex;
         justify-content: flex-end;
+        align-items: center;
         margin-top: 1.5rem;
+        flex-wrap: wrap;
         @include tablet {
             padding: 1rem 2rem;
             margin-top: .5rem;
@@ -140,16 +142,32 @@
         border: none;
         color: $primary-background;
         padding: .5rem 1rem;
-        flex-basis: 50%;
+        flex-grow: 1;
         @include tablet {
-            flex-basis: auto;
+            flex-grow: 0;
         }
         &--cancel {
+            display: inline-block;
+            text-align: center;
             text-decoration: none;
             background-color: $primary-background;
             border: 1px solid $outline-dividers-borders;
             color: $primary-text;
             margin-right: 1rem;
+        }
+    }
+    &__success {
+        color: $in-stock-label;
+        flex-basis: 100%;
+        justify-self: flex-end;
+        text-align: center;
+        font-style: italic;
+        margin: .5rem;
+        @include tablet {
+            text-align: end;
+        }
+        &--error{
+            color: $out-of-stock-label
         }
     }
 
