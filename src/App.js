@@ -4,12 +4,13 @@ import "./App.scss";
 import Header from "./components/Header/Header";
 import Footer from './components/Footer/Footer.js';
 import WarehouseDetailsPage from "./pages/WarehouseDetailsPage";
+import DeleteModal from "./components/DeleteModal/DeleteModal";
 
 function App() {
   return(
     <>
-    
-      <BrowserRouter>
+    <DeleteModal />
+      {/* <BrowserRouter>
         <Header />
           <main className="background">
             <div className="background__card">
@@ -25,13 +26,14 @@ function App() {
               
               <Route path="/inventory/inventory/:id" element={}/>
               <Route path="/inventory/edit/:id" element={} */}
-              </Routes>
+              {/* </Routes>
             </div>
           </main>
           <Footer />
-      </BrowserRouter>
+      </BrowserRouter> */}
     </>
-  );
-}
+)}
+//   );
+// } */}
 
 export default App;
