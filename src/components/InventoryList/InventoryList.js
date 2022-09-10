@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import InventoryCard from "../InventoryCard /InventoryCard";
 import "./InventoryList.scss";
 
 function InventoryList() {
@@ -16,7 +17,7 @@ function InventoryList() {
     }, [])
 
     if(!inventory) {
-        <p>Loading...</p>
+        return <p>Loading...</p>
     }
 
     return (
@@ -26,14 +27,14 @@ function InventoryList() {
                     <h1 className="inventory-list__title">Inventory</h1>
                 </div>
                 <div className="inventory-list__right">
-                    {/* <form> */}
+                    <form className="inventory-list__form">
                     <input
                         name="search"
                         type="text"
                         placeholder="Search..."
                         className={`inventory-list__input`}
                     />
-                    {/* </form> */}
+                    </form>
                     <Link 
                         to={`/inventory/add-new`} 
                         className="inventory-list__link">
@@ -43,7 +44,11 @@ function InventoryList() {
                     </Link>
                 </div>   
             </div>
-            <div></div>
+            <div className="inventory-list__bottom">
+                {inventory.map((inventory, i)=>{
+                    return <InventoryCard key={inventory.id} i ={i} id={inventory.id} inventory = {inventory}/>
+                })}
+            </div>
         </>
     )
 }

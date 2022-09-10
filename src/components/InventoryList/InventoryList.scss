@@ -4,21 +4,18 @@
 
 .inventory-list {
     &__top {
-        display: flex;
-        flex-direction: column;
-        padding: 1.5rem 1.5rem 1rem;  
+        padding: 1.5rem 1.5rem 1rem;
         border-bottom: 1px solid $outline-dividers-borders;
-        
+
         @include tablet {
-            border-bottom: 0;
-            flex-direction: row;
+            padding: 1.5rem 2rem 1rem;
+            border-bottom: none;
+            display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 2rem 2rem 1.2rem;
         }
 
         @include desktop {
-            padding: 2rem 2.3rem 1.2rem;
+            padding: 1.5rem 2.3rem 1rem;
         }
     }
 
@@ -34,52 +31,57 @@
     &__right {
         @include tablet {
             display: flex;
+            justify-content: flex-end;
             align-items: center;
-            justify-content: right;
             width: 50%;
+        }
+    }
+
+    &__form {
+        width: 100%;
+
+        @include tablet {
+            width: 55%;
+            margin-right: 1rem;
         }
     }
 
     &__input {
         padding: .4rem 1rem;
+        margin-top: .25rem;
         border-radius: 1.25rem;
         outline: none;
         border: 1px solid $outline-dividers-borders;
-        font-family: $titillium-web;  
-        width: 100%;          
+        font-family: $titillium-web;            
         @include body-medium;
-        background: url(../../assets//images/search-24px.svg) no-repeat scroll;
+        width: 100%;
+        background: url(../../assets/images/search-24px.svg) no-repeat scroll;
         background-position: 95% 50%;
 
         @include tablet {
             padding: .5rem 1rem;
-            width: 65%;
-            margin-right: 1rem;
         }
     }
 
     &__link {
         text-decoration: none;
-        
+        text-align: center;
+        width: fit-content;
     }
 
     &__edit-button {
+        margin-top: 1rem;
         @include buttons;
-        background-color: $inactive;
-        color: $primary-background;
         border-radius: 1.25rem;
+        background-color: $inactive;
         border: none;
+        color: $primary-background;
         padding: .4rem 1rem;
-        width: 100%;
-        margin-top: .9rem;
-        text-align: center;
 
         @include tablet {
+            min-width: max-content;
             padding: .5rem 1rem;
             margin: 0;
-            min-width: max-content;
         }
     }
-
 }
-    
