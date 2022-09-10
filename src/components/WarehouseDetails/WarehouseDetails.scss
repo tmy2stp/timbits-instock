@@ -52,6 +52,10 @@
             height: 2.375rem;
             background-position: 1rem;
         }
+
+        @include desktop {
+            
+        }
     }
 
     &__bottom {
@@ -59,8 +63,10 @@
         border-top: 1px solid $outline-dividers-borders;
         display: flex;
         flex-wrap: wrap;
+        border-bottom: 1px solid $outline-dividers-borders;
 
         @include tablet {
+            border-bottom: 0;
             padding: 0 2rem;
         }
 
