@@ -29,6 +29,7 @@ function NewWarehouse() {
 
   //create state generate success message
   const [success, setSuccess] = useState(false);
+  const [isError, setIsError] = useState("");
 
   const handleChangeName = (event) => {
     if (nameError) {
@@ -109,10 +110,10 @@ function NewWarehouse() {
     city: city,
     country: country,
     contact: {
-      managerName: managerName,
-      managerPosition: managerPosition,
-      managerPhone: managerPhone,
-      managerEmail: managerEmail,
+      name: managerName,
+      position: managerPosition,
+      phone: managerPhone,
+      email: managerEmail,
     },
   };
 
@@ -125,6 +126,7 @@ function NewWarehouse() {
         .then((response) => {
           console.log(response.data);
           // setVisibleItem("message");
+          setSuccess(true);
           setName("");
           setAddress("");
           setCity("");
@@ -135,6 +137,7 @@ function NewWarehouse() {
           setManagerEmail("");
         })
         .catch((error) => {
+          setIsError(error.response.data.error);
           console.log(error.response.data);
         });
     } else {
@@ -279,7 +282,7 @@ function NewWarehouse() {
               className={`newWarehouse-form__input ${
                 managerPhoneError ? "newWarehouse-form__input--error" : ""
               }`}
-              type="text"
+              type="tel"
               placeholder="Phone Number"
               onChange={handleChangePhone}
               value={managerPhone}
@@ -297,7 +300,7 @@ function NewWarehouse() {
               className={`newWarehouse-form__input ${
                 managerEmailError ? "newWarehouse-form__input--error" : ""
               }`}
-              type="text"
+              type="email"
               placeholder="Email"
               onChange={handleChangeEmail}
               value={managerEmail}
@@ -311,6 +314,12 @@ function NewWarehouse() {
           </label>
         </div>
         <footer className="newWarehouse-form__footer">
+          <p className="newWarehouse-form__error">{isError}</p>
+          {success && (
+            <p className="newWarehouse-form__error newWarehouse-form__error--success">
+              Warehouse Added
+            </p>
+          )}
           <Link
             to="/"
             className="newWarehouse-form__button newWarehouse-form__button--cancel"

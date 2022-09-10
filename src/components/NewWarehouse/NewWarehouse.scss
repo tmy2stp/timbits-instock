@@ -92,6 +92,7 @@
         display: flex;
         justify-content: flex-end;
         margin-top: 1.5rem;
+        flex-wrap: wrap;
         @include tablet {
             padding: 1rem 2rem;
             margin-top: .5rem;
@@ -104,9 +105,9 @@
         border: none;
         color: $primary-background;
         padding: .5rem 1rem;
-        flex-basis: 50%;
+        flex-grow:1;
         @include tablet {
-            flex-basis: auto;
+            flex-grow: 0;
         }
         &--cancel {
             text-decoration: none;
@@ -114,6 +115,20 @@
             border: 1px solid $outline-dividers-borders;
             color: $primary-text;
             margin-right: 1rem;
+            text-align: center;
+        }
+    }
+    &__error {
+        color: $error-state;
+        @include body-small;
+        flex-basis: 100%;
+        justify-self: flex-end;
+        text-align: end;
+        font-style: italic;
+        margin: .5rem;
+
+        &--success {
+            color: $in-stock-label;
         }
     }
 
