@@ -5,12 +5,14 @@ import axios from 'axios'
 import { useState } from 'react'
 const API_URL = "http://localhost:8080";
 
-function DeleteWarehouse({ warehouseName, warehouseId }) {
+function DeleteWarehouse({ warehouseName, warehouseId, handleCloseModal }) {
                     const [success, setSuccess] = useState("")
                     const [error, setError] = useState("")
     const handleDelete = (event) => {
         axios.delete(API_URL + `/warehouses/warehouse/${warehouseId}`).then((response) => {
+            console.log(warehouseId);
             setSuccess("The Warehouse Was Deleted Successfully!")
+
         }).catch((error)=> {
             console.log(error)
             setError("Something Went Wrong! Please Try Again.")
@@ -18,11 +20,10 @@ function DeleteWarehouse({ warehouseName, warehouseId }) {
     }
 
 
-
     return (
         <div className="delete">
             <div className="delete__text">
-                <img className="delete__close" src={closeButton}
+                <img onClick={handleCloseModal} className="delete__close" src={closeButton}
                     alt='closing x' />
                 <div className="delete__container">
                     <h2 className="delete__heading">Delete {warehouseName} warehouse? </h2>
@@ -33,7 +34,7 @@ function DeleteWarehouse({ warehouseName, warehouseId }) {
                 <div className="delete__buttons">
                     <p className="delete__message delete__message--success">{success}</p>
                     <p className="delete__message">{error}</p>
-                    <button className="delete__cancel button button--cancel">Cancel</button>
+                    <button onClick={handleCloseModal} className="delete__cancel button button--cancel">Cancel</button>
                     <button onClick={handleDelete} className="delete__delete button button--delete">Delete</button>
                 </div>
             </div>
@@ -41,7 +42,7 @@ function DeleteWarehouse({ warehouseName, warehouseId }) {
 
 
 
-    )
+    );
 }
 
 
