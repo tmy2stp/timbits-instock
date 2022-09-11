@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import InventoryCard from "../InventoryCard /InventoryCard";
+import InventoryCard from "../InventoryCard/InventoryCard";
 import "./InventoryList.scss";
 import SortIcon from "../../assets/images/sort-24px.svg";
 

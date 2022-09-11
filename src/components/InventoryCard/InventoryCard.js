@@ -4,7 +4,7 @@ import EditIcon from "../../assets/images/edit-24px.svg";
 import ArrowRight from "../../assets/images/chevron_right-24px.svg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import DeleteModal from "../../components/DeleteModal/DeleteInventoryItem";
+import DeleteModal from "../DeleteModal/DeleteInventoryItem";
 
 function InventoryCard({inventory, id, i, setReload, reload}) {
 
