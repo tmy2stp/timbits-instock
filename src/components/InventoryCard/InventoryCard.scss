@@ -2,7 +2,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
-.item {
+.card {
     padding: 0 1.5rem; 
     border-top: 1px solid $outline-dividers-borders;
     display: flex;
@@ -58,14 +58,26 @@
 
     &__status {
         @include tablet {
-            width: 30%;
+            width: 20%;
             padding: 0 1.25rem;
         }
     }
 
     &__qty {
         @include tablet {
-            width: 21%;
+            width: 11%;
+        }
+    }
+
+    &__warehouse {
+        @include tablet {
+            width: 20%;
+        }
+    }
+
+    &__empty {
+        @include tablet {
+            display: none;
         }
     }
 
