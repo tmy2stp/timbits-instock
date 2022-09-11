@@ -3,6 +3,10 @@
 @use "../../styles/partials/variables" as *;
 
 .warehouse {
+  &__title{
+    margin: 0;
+    padding-bottom: 1rem;
+  }
   &__header {
     padding-top: 1rem;
     padding-left: 1rem;
