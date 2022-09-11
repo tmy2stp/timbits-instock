@@ -375,12 +375,12 @@ function AddNewInventory() {
         {errorMessage.length>0 && <p className="inventory-form__success inventory-form__success--error">{errorMessage}</p>}
           <Link 
             to="/"
-            className="inventory-form__button inventory-form__button--cancel">
+            className="inventory-form__button button button--cancel">
             Cancel
           </Link>
           <button
             type="submit"
-            className="inventory-form__button inventory-form__button--before"
+            className="inventory-form__button button button--primary"
           >
             + Add Item
           </button>

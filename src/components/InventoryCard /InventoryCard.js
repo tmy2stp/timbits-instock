@@ -4,6 +4,7 @@ import EditIcon from "../../assets/images/edit-24px.svg";
 import ArrowRight from "../../assets/images/chevron_right-24px.svg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import DeleteModal from "../../components/DeleteModal/DeleteInventoryItem";
 
 function InventoryCard({inventory, id, i}) {
 
@@ -15,7 +16,7 @@ function InventoryCard({inventory, id, i}) {
     
   return (
     <div className={`card ${i===0 ? "card__first" : null}`}>
-            {/* {clickDelete === true ? <DeleteComponent />: null} */}
+            {clickDelete === true ? <DeleteModal />: null}
             <div className="card__key-pair card__item">
                 <h4 className="card__label">Inventory item</h4>
                     <Link to={`/inventory/${id}`} className="card__item-name card__title-container">

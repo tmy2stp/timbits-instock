@@ -4,9 +4,10 @@ import EditIcon from "../../assets/images/edit-24px.svg";
 import ArrowRight from "../../assets/images/chevron_right-24px.svg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import DeleteModal from "../../components/DeleteModal/DeleteInventoryItem";
+
 
 function InventoryItem({inventory, i, id}) {
-    //Delete button functionality is now commented out, because the component for it hasn't been created yet
 
     const [ clickDelete , setClickDelete ] = useState(false);
 
@@ -16,7 +17,7 @@ function InventoryItem({inventory, i, id}) {
 
     return (
         <div className={`item ${i===0 ? "item" : null}`}>
-            {/* {clickDelete === true ? <DeleteComponent />: null} */}
+            {clickDelete === true ? <DeleteModal />: null}
             <div className="item__key-pair item__item">
                 <h4 className="item__label">Inventory item</h4>
                     <Link to={`/inventory/${id}`} className="item__item-name item__title-container">
