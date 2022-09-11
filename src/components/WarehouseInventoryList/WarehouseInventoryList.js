@@ -49,7 +49,7 @@ function WarehouseInventoryList() {
           </div>
       </div>
       {warehouseInventory.map((inventory, i)=>{
-          return <InventoryItem key={inventory.id} id={inventory.id} i={i} inventory = {inventory}/>
+          return <InventoryItem key={inventory.id} inventoryId={inventory.id} i={i} inventory = {inventory}/>
       })}
     </div>
   )

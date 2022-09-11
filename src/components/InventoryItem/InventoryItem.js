@@ -7,7 +7,7 @@ import { useState } from "react";
 import DeleteModal from "../../components/DeleteModal/DeleteInventoryItem";
 
 
-function InventoryItem({inventory, i, id}) {
+function InventoryItem({inventory, i, inventoryId}) {
 
     const [ clickDelete , setClickDelete ] = useState(false);
 
@@ -20,7 +20,7 @@ function InventoryItem({inventory, i, id}) {
             {clickDelete === true ? <DeleteModal />: null}
             <div className="item__key-pair item__item">
                 <h4 className="item__label">Inventory item</h4>
-                    <Link to={`/inventory/${id}`} className="item__item-name item__title-container">
+                    <Link to={`/inventory/${inventoryId}`} className="item__item-name item__title-container">
                         <p className="item__content item__title ">{inventory.itemName}</p>
                         <img src={ArrowRight} alt="Right arrow" className="item__title-icon"/>
                     </Link>
@@ -41,7 +41,7 @@ function InventoryItem({inventory, i, id}) {
             </div>
             <div className="item__bottom">
                 <div onClick={handleClick} className="item__delete-container"><img className="item__icon" src={DeleteIcon} alt="Delete icon" /></div>
-                <Link to={`/warehouses/edit/${id}`}><img className="item__icon" src={EditIcon} alt="Edit icon"/></Link>
+                <Link to={`/warehouses/edit/${inventoryId}`}><img className="item__icon" src={EditIcon} alt="Edit icon"/></Link>
             </div>
         </div>
     )

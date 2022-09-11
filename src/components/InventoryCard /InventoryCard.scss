@@ -105,6 +105,9 @@
 
     &__title {
         font-weight: 600;
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
     &__in-stock {
