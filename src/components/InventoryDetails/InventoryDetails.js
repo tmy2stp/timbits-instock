@@ -5,8 +5,8 @@ import "./InventoryDetails.scss";
 import BackArrowIcon from "../../assets/images/arrow_back-24px.svg";
 
 function InventoryDetails() {
-    //State for selected warehouse data
-    const [warehouseDetails, setWarehouseDetails] = useState();
+    //State for selected inventory data
+    const [inventoryDetails, setInventoryDetails] = useState();
 
     //State to track size of browser window for styling
     const [width, setWidth] = useState(window.innerWidth);
@@ -19,8 +19,8 @@ function InventoryDetails() {
             .get(`http://localhost:8080/inventories/inventory/${id}`)
             .then((response) => {
                 console.log(response.data)
-                const selectedWarehouse = response.data;
-                setWarehouseDetails(selectedWarehouse);
+                const selectedInventory = response.data;
+                setInventoryDetails(selectedInventory);
             })
     }, [id])
 
@@ -37,7 +37,7 @@ function InventoryDetails() {
         }
     }, []);
 
-    if (!warehouseDetails) {
+    if (!inventoryDetails) {
         return <p>Loading.....</p>
     }
 
@@ -46,7 +46,7 @@ function InventoryDetails() {
             <div className="inventory-details__top">
                 <div className="inventory-details__left">
                     <Link to={`/inventory`} className="inventory-details__icon"><img src={BackArrowIcon} alt="Back arrow" /></Link>
-                    <h1 className="inventory-details__title">{warehouseDetails.itemName}</h1>
+                    <h1 className="inventory-details__title">{inventoryDetails.itemName}</h1>
                 </div>
                 <Link to={`/inventory/edit/${id}`}><button className="inventory-details__edit-button">{width < 767 ? null : "Edit"}</button></Link>
             </div>
@@ -56,28 +56,28 @@ function InventoryDetails() {
                     <div className="inventory-details__description">
                         <h4 className="inventory-details__label">Item Description:</h4>
                         <p className="inventory-details__content inventory-details__description-text">
-                            {warehouseDetails.description}
+                            {inventoryDetails.description}
                         </p>
                     </div>
                     <div className="inventory-details__category">
                         <h4 className="inventory-details__label">Category:</h4>
-                        <p className="inventory-details__content">{warehouseDetails.category}</p>
+                        <p className="inventory-details__content">{inventoryDetails.category}</p>
                     </div>
                 </div>
 
                 <div className="inventory-details__info-right">
                     <div className="inventory-details__status">
                         <h4 className="inventory-details__label">Status:</h4>
-                        <p className={`${warehouseDetails.status === "In Stock" ? "inventory-details__in-stock" : "inventory-details__out-of-stock"} inventory-details__content`}>{warehouseDetails.status}</p>
+                        <p className={`${inventoryDetails.status === "In Stock" ? "inventory-details__in-stock" : "inventory-details__out-of-stock"} inventory-details__content`}>{inventoryDetails.status}</p>
 
                     </div>
                     <div className="inventory-details__quantity">
                         <h4 className="inventory-details__label">Quantity:</h4>
-                        <p className="inventory-details__content">{warehouseDetails.quantity}</p>
+                        <p className="inventory-details__content">{inventoryDetails.quantity}</p>
                     </div>
                     <div className="inventory-details__warehouse">
                         <h4 className="inventory-details__label">Warehouse:</h4>
-                        <p className="inventory-details__content">{warehouseDetails.warehouseName}</p>
+                        <p className="inventory-details__content">{inventoryDetails.warehouseName}</p>
                     </div>
                 </div>
             </div>
