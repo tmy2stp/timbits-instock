@@ -7,6 +7,8 @@ import WarehouseDetailsPage from "./pages/WarehouseDetailsPage";
 // import DeleteModal from "./components/DeleteModal/DeleteWarehouse";
 import WarehouseFormPage from "./pages/WarehouseFormPage";
 import InventoryListPage from "./pages/InventoryListPage";
+import InventoryDetailsPage from "./pages/InventoryDetailsPage";
+import WarehouseListPage from "./pages/WarehouseListPage";
 
 
 function App() {
@@ -17,15 +19,16 @@ function App() {
           <main className="background">
             <div className="background__card">
               <Routes>
-                <Route path="/"/>
-                <Route path="/inventory" element={<InventoryListPage />}/>
-                <Route path="/warehouses"/>
-                <Route path="/warehouses/warehouse/:id" element={<WarehouseDetailsPage />}/>
-                <Route path="/inventory/inventory/:id"/>
-                <Route path="/inventory/add-new" element={<InventoryFormPage formType={"Add New"} />}/>
-                <Route path="/inventory/edit/:id" element={<InventoryFormPage formType={"Edit"}/>} />
-                <Route path="/warehouses/add-new" element={<WarehouseFormPage formType={"Add New"}/>}/>
-                <Route path="/warehouses/edit/:id" element={<WarehouseFormPage formType={"Edit"} />}/>                   
+
+              <Route path="/"/>
+              <Route path="/inventory" element={<InventoryListPage />}/>
+              <Route path="/warehouses" element={<WarehouseListPage />}/>
+              <Route path="/warehouses/warehouse/:id" element={<WarehouseDetailsPage />}/>
+              <Route path="/inventory/inventory/:id" element={<InventoryDetailsPage />} /> 
+              <Route path="/inventory/add-new" element={<InventoryFormPage formType={"Add New"} />}/>
+              <Route path="/inventory/edit/:id" element={<InventoryFormPage formType={"Edit"}/>} />
+              <Route path="/warehouses/add-new" element={<WarehouseFormPage formType={"Add New"}/>}/>
+              <Route path="/warehouses/edit/:id" element={<WarehouseFormPage formType={"Edit"} />}/>                   
               </Routes> 
           </div> 
           </main> 

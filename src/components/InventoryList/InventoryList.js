@@ -9,13 +9,15 @@ function InventoryList() {
 
     const [inventory, setInventory] = useState();
 
+    const [reload, setReload] = useState(1);
+
     useEffect(()=>{
         axios
             .get("http://localhost:8080/inventories")
             .then((response)=>{
                 setInventory(response.data);
             })
-    }, [])
+    }, [reload])
 
     if(!inventory) {
         return <p>Loading...</p>
@@ -72,8 +74,14 @@ function InventoryList() {
             </div>
             <div className="inventory-list__bottom">
                 {inventory.map((inventory, i)=>{
-                    return <InventoryCard key={inventory.id} i ={i} id={inventory.id} inventory = {inventory}/>
-                })}
+                    return <InventoryCard 
+                        key={inventory.id} 
+                        i ={i} 
+                        id={inventory.id} 
+                        inventory = {inventory} 
+                        setReload={setReload} 
+                        reload={reload}/>
+                    })}
             </div>
         </>
     )

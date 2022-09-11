@@ -7,17 +7,30 @@ import { useState } from "react";
 import DeleteModal from "../../components/DeleteModal/DeleteInventoryItem";
 
 
-function InventoryItem({inventory, i, inventoryId}) {
+function InventoryItem({inventory, i, inventoryId, reload, setReload}) {
 
-    const [ clickDelete , setClickDelete ] = useState(false);
+    const [clickDelete , setClickDelete] = useState(false);
 
-    const handleClick = () =>{
+    const [inventoryItem, setInventoryItem] = useState("");
+    const [inventoryToDelete, setInventoryToDelete] = useState("");
+
+    const handleClick = (inventoryItem, inventoryToDelete) =>{
         setClickDelete(true);
-    }
+        setInventoryItem(inventoryItem);
+        setInventoryToDelete(inventoryToDelete);
+    }   
+
+    const handleCloseModal = () => {
+        setClickDelete(false);
+        setReload(reload + 1);
+      }
 
     return (
         <div className={`item ${i===0 ? "item" : null}`}>
-            {clickDelete === true ? <DeleteModal />: null}
+           {clickDelete === true ? <DeleteModal 
+            handleCloseModal = {handleCloseModal} 
+            inventoryItem={inventoryItem} 
+            inventoryId={inventoryToDelete} /> : null}
             <div className="item__key-pair item__item">
                 <h4 className="item__label">Inventory item</h4>
                     <Link to={`/inventory/${inventoryId}`} className="item__item-name item__title-container">
@@ -40,7 +53,7 @@ function InventoryItem({inventory, i, inventoryId}) {
                 <p className="item__content">{inventory.quantity}</p>
             </div>
             <div className="item__bottom">
-                <div onClick={handleClick} className="item__delete-container"><img className="item__icon" src={DeleteIcon} alt="Delete icon" /></div>
+                <div onClick={()=>{handleClick(inventory.itemName, inventory.id)}} className="item__delete-container"><img className="item__icon" src={DeleteIcon} alt="Delete icon" /></div>
                 <Link to={`/inventory/edit/${inventoryId}`}><img className="item__icon" src={EditIcon} alt="Edit icon"/></Link>
             </div>
         </div>
