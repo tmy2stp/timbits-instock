@@ -41,7 +41,7 @@ function InventoryItem({inventory, i, inventoryId}) {
             </div>
             <div className="item__bottom">
                 <div onClick={handleClick} className="item__delete-container"><img className="item__icon" src={DeleteIcon} alt="Delete icon" /></div>
-                <Link to={`/warehouses/edit/${inventoryId}`}><img className="item__icon" src={EditIcon} alt="Edit icon"/></Link>
+                <Link to={`/inventory/edit/${inventoryId}`}><img className="item__icon" src={EditIcon} alt="Edit icon"/></Link>
             </div>
         </div>
     )
