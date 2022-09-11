@@ -20,7 +20,6 @@ function WarehouseList() {
   const [warehouseToDelete, setWarehouseToDelete] = useState("");
   const [warehouseName, setWarehouseName] = useState("");
 
-
   function handleClick(warehouseName, warehouseToDelete) {
     setIsOpen(true);
     // collects the info from the card to send to the modal
@@ -31,9 +30,8 @@ function WarehouseList() {
   // this event handler is passed down as a prop to the modal
   function handleCloseModal() {
     setIsOpen(false);
-    setReload(reload + 1)
+    setReload(reload + 1);
   }
-
 
   useEffect(() => {
     axios.get(URL).then((response) => {
@@ -105,77 +103,75 @@ function WarehouseList() {
           <h4 className="warehouse__subheader-text">ACTIONS</h4>
         </div>
       </div>
-      {isOpen &&
-            <DeleteWarehouse
-              handleCloseModal={handleCloseModal}
-              warehouseName={warehouseName}
-              warehouseId={warehouseToDelete}
-            />
-          }
+      {isOpen && (
+        <DeleteWarehouse
+          handleCloseModal={handleCloseModal}
+          warehouseName={warehouseName}
+          warehouseId={warehouseToDelete}
+        />
+      )}
       {allWarehouses.map((warehouse) => {
         return (
           <>
-          {!isOpen && 
-       
-          <div key={warehouse.id} className="warehouse__card">
-           
-            <div className="warehouse__card-item warehouse__card-item--warehouse">
-              <h4 className="warehouse__card-title warehouse__card-title--name">
-                WAREHOUSE
-              </h4>
-              <Link
-                to={`/warehouses/warehouse/${warehouse.id}`}
-                className="warehouse__card-link warehouse__card-info"
-              >
-                {warehouse.name}
-                {
-                  <img
-                    className="warehouse__card-arrow"
-                    src={chevronRight}
-                    alt="right arrow"
-                  />
-                }
-              </Link>
-            </div>
+            <div key={warehouse.id} className="warehouse__card">
+              <div className="warehouse__card-item warehouse__card-item--warehouse">
+                <h4 className="warehouse__card-title warehouse__card-title--name">
+                  WAREHOUSE
+                </h4>
+                <Link
+                  to={`/warehouses/warehouse/${warehouse.id}`}
+                  className="warehouse__card-link warehouse__card-info"
+                >
+                  {warehouse.name}
+                  {
+                    <img
+                      className="warehouse__card-arrow"
+                      src={chevronRight}
+                      alt="right arrow"
+                    />
+                  }
+                </Link>
+              </div>
 
-            <div className="warehouse__card-item warehouse__card-item--contact">
-              <h4 className="warehouse__card-title">CONTACT NAME</h4>
-              <p className="warehouse__card-info">{warehouse.contact.name}</p>
-            </div>
+              <div className="warehouse__card-item warehouse__card-item--contact">
+                <h4 className="warehouse__card-title">CONTACT NAME</h4>
+                <p className="warehouse__card-info">{warehouse.contact.name}</p>
+              </div>
 
-            <div className="warehouse__card-item warehouse__card-item--address">
-              <h4 className="warehouse__card-title ">ADDRESS</h4>
-              <p className="warehouse__card-info">
-                {warehouse.address}, {warehouse.city}, {warehouse.country}
-              </p>
-            </div>
+              <div className="warehouse__card-item warehouse__card-item--address">
+                <h4 className="warehouse__card-title ">ADDRESS</h4>
+                <p className="warehouse__card-info">
+                  {warehouse.address}, {warehouse.city}, {warehouse.country}
+                </p>
+              </div>
 
-            <div className="warehouse__card-item warehouse__card-item--info">
-              <h4 className="warehouse__card-title">CONTACT INFORMATION</h4>
-              <p className="warehouse__card-info">{warehouse.contact.phone}</p>
-              <p className="warehouse__card-info">{warehouse.contact.email}</p>
-            </div>
-            <div className="warehouse__card-icons warehouse__card-item--icons">
-              <img
-                onClick={()=>{
-                  handleClick(warehouse.name, warehouse.id)
-                }}
-                
-                className="warehouse__card-icon"
-                src={deleteIcon}
-                alt="delete button"
-              />
-              <Link to={`/warehouses/edit/${warehouse.id}`}>
+              <div className="warehouse__card-item warehouse__card-item--info">
+                <h4 className="warehouse__card-title">CONTACT INFORMATION</h4>
+                <p className="warehouse__card-info">
+                  {warehouse.contact.phone}
+                </p>
+                <p className="warehouse__card-info">
+                  {warehouse.contact.email}
+                </p>
+              </div>
+              <div className="warehouse__card-icons warehouse__card-item--icons">
                 <img
+                  onClick={() => {
+                    handleClick(warehouse.name, warehouse.id);
+                  }}
                   className="warehouse__card-icon"
-                  src={editIcon}
-                  alt="edit button"
+                  src={deleteIcon}
+                  alt="delete button"
                 />
-              </Link>
+                <Link to={`/warehouses/edit/${warehouse.id}`}>
+                  <img
+                    className="warehouse__card-icon"
+                    src={editIcon}
+                    alt="edit button"
+                  />
+                </Link>
+              </div>
             </div>
-         
-          </div>
-      }
           </>
         );
       })}
