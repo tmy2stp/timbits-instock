@@ -4,7 +4,7 @@ import "./App.scss";
 import Header from "./components/Header/Header";
 import Footer from './components/Footer/Footer.js';
 import WarehouseDetailsPage from "./pages/WarehouseDetailsPage";
-import DeleteModal from "./components/DeleteModal/DeleteWarehouse";
+// import DeleteModal from "./components/DeleteModal/DeleteWarehouse";
 
 import WarehouseFormPage from "./pages/WarehouseFormPage";
 

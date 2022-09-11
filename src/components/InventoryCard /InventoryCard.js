@@ -39,8 +39,7 @@ function InventoryCard({inventory, id, i}) {
                 <p className="card__content">{inventory.quantity}</p>
             </div>
             <div className="card__key-pair card__empty">
-                <h4 className="card__label"></h4>
-                <p className="card__content"></p>
+
             </div>
             <div className="card__key-pair card__right card__warehouse">
                 <h4 className="card__label">Warehouse</h4>
