@@ -14,7 +14,7 @@ import InventoryList from "./components/InventoryList/InventoryList";
 function App() {
   return (
     <>
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Header />
           <main className="background">
             <div className="background__card">
@@ -34,9 +34,8 @@ function App() {
           </main> 
           <Footer />
       </BrowserRouter> 
-*/}
     </>
   )
-}
+  }
 
 export default App;
