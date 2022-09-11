@@ -16,8 +16,16 @@ function WarehouseList() {
   const [reload, setReload] = useState(1);
   const URL = "http://localhost:8080/warehouses";
 
-  function handleClick() {
+  // -----states with info from the warehouse card------------
+  const [warehouseToDelete, setWarehouseToDelete] = useState("");
+  const [warehouseName, setWarehouseName] = useState("");
+
+
+  function handleClick(warehouseName, warehouseToDelete) {
     setIsOpen(true);
+    // collects the info from the card to send to the modal
+    setWarehouseName(warehouseName);
+    setWarehouseToDelete(warehouseToDelete);
   }
 
   // this event handler is passed down as a prop to the modal
@@ -25,6 +33,7 @@ function WarehouseList() {
     setIsOpen(false);
     setReload(reload + 1)
   }
+
 
   useEffect(() => {
     axios.get(URL).then((response) => {
@@ -96,16 +105,20 @@ function WarehouseList() {
           <h4 className="warehouse__subheader-text">ACTIONS</h4>
         </div>
       </div>
+      {isOpen &&
+            <DeleteWarehouse
+              handleCloseModal={handleCloseModal}
+              warehouseName={warehouseName}
+              warehouseId={warehouseToDelete}
+            />
+          }
       {allWarehouses.map((warehouse) => {
         return (
+          <>
+          {!isOpen && 
+       
           <div key={warehouse.id} className="warehouse__card">
-               {isOpen && (
-              <DeleteWarehouse
-                handleCloseModal={handleCloseModal}
-                warehouseName={warehouse.name}
-                warehouseId={warehouse.id}
-              />
-            )}
+           
             <div className="warehouse__card-item warehouse__card-item--warehouse">
               <h4 className="warehouse__card-title warehouse__card-title--name">
                 WAREHOUSE
@@ -144,7 +157,10 @@ function WarehouseList() {
             </div>
             <div className="warehouse__card-icons warehouse__card-item--icons">
               <img
-                onClick={handleClick}
+                onClick={()=>{
+                  handleClick(warehouse.name, warehouse.id)
+                }}
+                
                 className="warehouse__card-icon"
                 src={deleteIcon}
                 alt="delete button"
@@ -159,6 +175,8 @@ function WarehouseList() {
             </div>
          
           </div>
+      }
+          </>
         );
       })}
     </div>
