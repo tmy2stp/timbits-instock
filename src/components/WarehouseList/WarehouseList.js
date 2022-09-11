@@ -6,6 +6,7 @@ import editIcon from "../../assets/images/edit-24px.svg";
 import chevronRight from "../../assets/images/chevron_right-24px.svg";
 import { Link } from "react-router-dom";
 import sortArrows from "../../assets/images/sort-24px.svg";
+import DeleteWarehouse from "../DeleteModal/DeleteWarehouse";
 
 function WarehouseList() {
   const [allWarehouses, setAllWarehouses] = useState([]);
@@ -17,6 +18,10 @@ function WarehouseList() {
     console.log(isOpen);
   }
 
+  function handleCloseModal() {
+    setIsOpen(false);
+  }
+
   useEffect(() => {
     axios.get(URL).then((response) => {
       console.log(response.data);
@@ -25,8 +30,6 @@ function WarehouseList() {
   }, []);
 
   return (
-    // conditional to show modal
-    // {isOpen && }
     <div className="warehouse">
       <header className="warehouse__header">
         <h1>Warehouses</h1>
@@ -92,6 +95,14 @@ function WarehouseList() {
       {allWarehouses.map((warehouse) => {
         return (
           <div key={warehouse.id} className="warehouse__card">
+               {/* conditional to show modal */}
+               {isOpen && (
+              <DeleteWarehouse
+                handleCloseModal={handleCloseModal}
+                warehouseName={warehouse.name}
+                warehouseId={warehouse.id}
+              />
+            )}
             <div className="warehouse__card-item warehouse__card-item--warehouse">
               <h4 className="warehouse__card-title warehouse__card-title--name">
                 WAREHOUSE
@@ -143,6 +154,7 @@ function WarehouseList() {
                 />
               </Link>
             </div>
+         
           </div>
         );
       })}

@@ -5,7 +5,7 @@ import axios from 'axios'
 import { useState } from 'react'
 const API_URL = "http://localhost:8080";
 
-function DeleteWarehouse({ warehouseName, warehouseId }) {
+function DeleteWarehouse({ warehouseName, warehouseId, handleCloseModal }) {
                     const [success, setSuccess] = useState("")
                     const [error, setError] = useState("")
     const handleDelete = (event) => {
@@ -16,7 +16,6 @@ function DeleteWarehouse({ warehouseName, warehouseId }) {
             setError("Something Went Wrong! Please Try Again.")
         })
     }
-
 
 
     return (
@@ -33,7 +32,7 @@ function DeleteWarehouse({ warehouseName, warehouseId }) {
                 <div className="delete__buttons">
                     <p className="delete__message delete__message--success">{success}</p>
                     <p className="delete__message">{error}</p>
-                    <button className="delete__cancel button button--cancel">Cancel</button>
+                    <button onClick={handleCloseModal} className="delete__cancel button button--cancel">Cancel</button>
                     <button onClick={handleDelete} className="delete__delete button button--delete">Delete</button>
                 </div>
             </div>
@@ -41,7 +40,7 @@ function DeleteWarehouse({ warehouseName, warehouseId }) {
 
 
 
-    )
+    );
 }
 
 

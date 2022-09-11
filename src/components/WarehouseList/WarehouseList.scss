@@ -21,6 +21,11 @@
         align-items: center;
         width: 60%;
       }
+      @include desktop {
+        width: 70%;
+        justify-content: flex-end;
+
+      }
     }
 
     &-input {
@@ -43,6 +48,11 @@
 
       @include tablet {
         margin: 0;
+        width: 100%;
+      }
+      @include desktop {
+        width: 20rem;
+        margin-right: 1rem;
       }
     }
 
@@ -58,8 +68,11 @@
       flex-basis: 50%;
       @include tablet {
         flex-basis: auto;
-        width: 45%;
+        width: 42%;
         margin: 0;
+      }
+      @include desktop {
+        width: 30%;
       }
     }
   }
