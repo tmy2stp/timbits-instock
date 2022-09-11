@@ -2,10 +2,10 @@
 @use '../../styles/partials/variables' as *;
 
 .header {
-    padding-bottom: 13rem;
+    padding-bottom: 8rem;
     background-color: $header-background;
     @include tablet {
-        padding-bottom: 8.75rem;
+        padding-bottom: 6.25rem;
     }
 
     @include tablet {
