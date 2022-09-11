@@ -39,7 +39,7 @@ function InventoryList() {
                     <Link 
                         to={`/inventory/add-new`} 
                         className="inventory-list__link">
-                            <div className="inventory-list__edit-button">
+                            <div className="button--primary inventory-list__add-button">
                                 + Add new item 
                             </div>
                     </Link>

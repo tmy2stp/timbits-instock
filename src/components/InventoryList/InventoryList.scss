@@ -1,6 +1,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/typography" as *;
+@use "../../styles/partials/button" as *;
 
 .inventory-list {
     &__top {
@@ -69,7 +70,7 @@
         width: fit-content;
     }
 
-    &__edit-button {
+    &__add-button {
         margin-top: 1rem;
         @include buttons;
         border-radius: 1.25rem;
@@ -77,6 +78,10 @@
         border: none;
         color: $primary-background;
         padding: .4rem 1rem;
+
+        &:hover{
+            background-color: $cta-hover;
+        }
 
         @include tablet {
             min-width: max-content;

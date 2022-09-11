@@ -5,10 +5,8 @@ import Header from "./components/Header/Header";
 import Footer from './components/Footer/Footer.js';
 import WarehouseDetailsPage from "./pages/WarehouseDetailsPage";
 // import DeleteModal from "./components/DeleteModal/DeleteWarehouse";
-
 import WarehouseFormPage from "./pages/WarehouseFormPage";
-
-import InventoryList from "./components/InventoryList/InventoryList";
+import InventoryListPage from "./pages/InventoryListPage";
 
 
 function App() {
@@ -20,7 +18,7 @@ function App() {
             <div className="background__card">
               <Routes>
                 <Route path="/"/>
-                <Route path="/inventory" element={<InventoryList />}/>
+                <Route path="/inventory" element={<InventoryListPage />}/>
                 <Route path="/warehouses"/>
                 <Route path="/warehouses/warehouse/:id" element={<WarehouseDetailsPage />}/>
                 <Route path="/inventory/inventory/:id"/>
