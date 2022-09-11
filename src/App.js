@@ -4,14 +4,10 @@ import "./App.scss";
 import Header from "./components/Header/Header";
 import Footer from './components/Footer/Footer.js';
 import WarehouseDetailsPage from "./pages/WarehouseDetailsPage";
-import WarehouseListPage from './pages/WarehouseListPage';
-
-
-
-
 import WarehouseFormPage from "./pages/WarehouseFormPage";
-
 import InventoryList from "./components/InventoryList/InventoryList";
+import InventoryDetailsPage from "./pages/InventoryDetailsPage";
+import WarehouseListPage from "./pages/WarehouseListPage";
 
 
 function App() {
@@ -27,7 +23,7 @@ function App() {
               <Route path="/inventory" element={<InventoryList />}/>
               <Route path="/warehouses" element={<WarehouseListPage />}/>
               <Route path="/warehouses/warehouse/:id" element={<WarehouseDetailsPage />}/>
-              <Route path="/inventory/inventory/:id"/>
+              <Route path="/inventory/inventory/:id" element={<InventoryDetailsPage />} /> 
               <Route path="/inventory/add-new" element={<InventoryFormPage formType={"Add New"} />}/>
               <Route path="/inventory/edit/:id" element={<InventoryFormPage formType={"Edit"}/>} />
               <Route path="/warehouses/add-new" element={<WarehouseFormPage formType={"Add New"}/>}/>
