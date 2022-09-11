@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import InventoryCard from "../InventoryCard /InventoryCard";
 import "./InventoryList.scss";
+import SortIcon from "../../assets/images/sort-24px.svg";
 
 function InventoryList() {
 
@@ -43,6 +44,31 @@ function InventoryList() {
                             </div>
                     </Link>
                 </div>   
+            </div>
+            <div className="inventory-list__names names">
+                <div className="names__column names__column names__item">
+                    <h4 className="names__title">Inventory item</h4>
+                    <img className="names__sort-icon" src={SortIcon} alt="Sort Icon" />
+                </div>
+                <div className="names__column names__column names__category">
+                    <h4 className="names__title">Category</h4>
+                    <img className="names__sort-icon" src={SortIcon} alt="Sort Icon" />
+                </div>
+                <div className="names__column names__column names__status">
+                    <h4 className="names__title">Status</h4>
+                    <img className="names__sort-icon" src={SortIcon} alt="Sort Icon" />
+                </div>
+                <div className="names__column names__column names__qty">
+                    <h4 className="names__title">Qty</h4>
+                    <img className="names__sort-icon" src={SortIcon} alt="Sort Icon" />
+                </div>
+                <div className="names__column names__column names__warehouse">
+                    <h4 className="names__title">Warehouse</h4>
+                    <img className="names__sort-icon" src={SortIcon} alt="Sort Icon" />
+                </div>
+                <div className="names__column names__column names__actions">
+                    <h4 className="names__title">Actions</h4>
+                </div>
             </div>
             <div className="inventory-list__bottom">
                 {inventory.map((inventory, i)=>{

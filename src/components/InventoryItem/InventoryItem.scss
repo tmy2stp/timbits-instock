@@ -2,7 +2,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
-.card {
+.item {
     padding: 0 1.5rem; 
     border-top: 1px solid $outline-dividers-borders;
     display: flex;
