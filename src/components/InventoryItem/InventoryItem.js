@@ -33,7 +33,7 @@ function InventoryItem({inventory, i, inventoryId, reload, setReload}) {
             inventoryId={inventoryToDelete} /> : null}
             <div className="item__key-pair item__item">
                 <h4 className="item__label">Inventory item</h4>
-                    <Link to={`/inventory/${inventoryId}`} className="item__item-name item__title-container">
+                    <Link to={`/inventory/inventory/${inventoryId}`} className="item__item-name item__title-container">
                         <p className="item__content item__title ">{inventory.itemName}</p>
                         <img src={ArrowRight} alt="Right arrow" className="item__title-icon"/>
                     </Link>
