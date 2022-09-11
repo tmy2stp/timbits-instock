@@ -75,7 +75,13 @@
         width: 30%;
       }
     }
+
+    &-button:hover {
+      background-color: $cta-hover;
+    }
   }
+
+  
 
   &__subheaders {
     display: none;
@@ -214,5 +220,9 @@
     &-icon:hover {
        cursor: pointer;
       }
+  }
+
+  &__card:hover {
+    background-color: $cta-background;
   }
 }

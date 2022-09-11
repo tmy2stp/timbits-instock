@@ -21,7 +21,7 @@ function DeleteWarehouse({ warehouseName, warehouseId, handleCloseModal }) {
     return (
         <div className="delete">
             <div className="delete__text">
-                <img className="delete__close" src={closeButton}
+                <img onClick={handleCloseModal} className="delete__close" src={closeButton}
                     alt='closing x' />
                 <div className="delete__container">
                     <h2 className="delete__heading">Delete {warehouseName} warehouse? </h2>

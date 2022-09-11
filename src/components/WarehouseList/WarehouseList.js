@@ -10,16 +10,20 @@ import DeleteWarehouse from "../DeleteModal/DeleteWarehouse";
 
 function WarehouseList() {
   const [allWarehouses, setAllWarehouses] = useState([]);
+  // state to conditionally open the modal
   const [isOpen, setIsOpen] = useState(false);
+  // state to reload component after delete
+  const [reload, setReload] = useState(1);
   const URL = "http://localhost:8080/warehouses";
 
   function handleClick() {
     setIsOpen(true);
-    console.log(isOpen);
   }
 
+  // this event handler is passed down as a prop to the modal
   function handleCloseModal() {
     setIsOpen(false);
+    setReload(reload + 1)
   }
 
   useEffect(() => {
@@ -27,7 +31,7 @@ function WarehouseList() {
       console.log(response.data);
       setAllWarehouses(response.data);
     });
-  }, []);
+  }, [reload]);
 
   return (
     <div className="warehouse">
@@ -95,7 +99,6 @@ function WarehouseList() {
       {allWarehouses.map((warehouse) => {
         return (
           <div key={warehouse.id} className="warehouse__card">
-               {/* conditional to show modal */}
                {isOpen && (
               <DeleteWarehouse
                 handleCloseModal={handleCloseModal}
