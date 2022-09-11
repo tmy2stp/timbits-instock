@@ -42,6 +42,10 @@
             width: 1.5rem;
         }
     }
+    &__close:hover {
+        cursor: pointer;
+    }
+
     &__buttons {
         justify-self: flex-end ;
         display: flex;
