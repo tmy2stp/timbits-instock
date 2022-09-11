@@ -1,6 +1,7 @@
-@use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/typography" as *;
+@use "../../styles/partials/button" as *;
 
 .inventory-list {
     &__top {
@@ -8,20 +9,24 @@
         border-bottom: 1px solid $outline-dividers-borders;
 
         @include tablet {
-            padding: 1.5rem 2rem 1rem;
+            padding: 2rem 2rem 1rem;
             border-bottom: none;
             display: flex;
             justify-content: space-between;
         }
 
         @include desktop {
-            padding: 1.5rem 2.3rem 1rem;
+            padding: 2rem 2.3rem 1rem;
         }
     }
 
     &__title {
         margin: 0;
         margin-bottom: 1rem;
+
+        @include tablet {
+            margin:0;
+        }
     }
 
     &__right {
@@ -56,7 +61,6 @@
 
         @include tablet {
             padding: .5rem 1rem;
-
         }
     }
 
@@ -66,7 +70,7 @@
         width: fit-content;
     }
 
-    &__edit-button {
+    &__add-button {
         margin-top: 1rem;
         @include buttons;
         border-radius: 1.25rem;
@@ -75,10 +79,74 @@
         color: $primary-background;
         padding: .4rem 1rem;
 
+        &:hover{
+            background-color: $cta-hover;
+        }
+
         @include tablet {
             min-width: max-content;
             padding: .5rem 1rem;
             margin: 0;
         }
+    }
+}
+
+.names {
+    display: none;
+    background-color: $table-header-background;
+
+    @include tablet {
+        display: flex;
+        padding: 0 2rem;
+    }
+
+    @include desktop {
+        padding: .0 2.3rem;
+    }
+    
+    &__column {
+        display: flex;
+    }
+
+    &__title {
+        font-size: 0.75rem;
+        margin: .65rem 0;
+    }
+
+    &__sort-icon {
+        width: 1.2rem;
+        margin-left: .25rem;
+    }
+    
+    &__item {
+        width: 25%;
+    }
+
+    &__category {
+        width: 15%;
+    }
+
+    &__status {
+        @include tablet {
+            width: 20%;
+            padding: 0 1.25rem;
+        }
+    }
+
+    &__qty {
+        @include tablet {
+            width: 11%;
+        }
+    }
+
+    &__warehouse {
+        @include tablet {
+            width: 20%;
+        }
+    }
+
+    &__actions {
+        width: 9%;
+        justify-content: end;
     }
 }

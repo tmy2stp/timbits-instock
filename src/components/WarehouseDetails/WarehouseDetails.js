@@ -50,7 +50,7 @@ function WarehouseDetails() {
                     <Link to={`/warehouses`} className="warehouse-details__icon"><img  src={BackArrowIcon} alt="Back arrow"/></Link>
                     <h1 className="warehouse-details__title">{warehouseDetails.city}</h1>
                 </div>
-                <Link to={`/warehouses/edit/${id}`}><button className="warehouse-details__edit-button">{width<767 ? null : "Edit"}</button></Link>
+                <Link to={`/warehouses/edit/${id}`}><button className="button--primary warehouse-details__edit-button">{width<767 ? null : "Edit"}</button></Link>
             </div>
             <div className="warehouse-details__bottom">
                 <div className="warehouse-details__address">

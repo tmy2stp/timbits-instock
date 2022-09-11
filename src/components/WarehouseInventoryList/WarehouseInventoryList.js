@@ -8,6 +8,7 @@ import SortIcon from "../../assets/images/sort-24px.svg";
 function WarehouseInventoryList() {
   //State for selected warehouse's inventory data
   const [warehouseInventory, setWarehouseInventory] = useState();
+  const [reload, setReload] = useState(1);
 
   const {id} = useParams();
 
@@ -19,7 +20,7 @@ function WarehouseInventoryList() {
             const inventories = response.data;
             setWarehouseInventory(inventories);
         })
-  }, [id])
+  }, [id, reload])
 
   if(!warehouseInventory) {
     return <p>Loading.....</p>
@@ -49,7 +50,13 @@ function WarehouseInventoryList() {
           </div>
       </div>
       {warehouseInventory.map((inventory, i)=>{
-          return <InventoryItem key={inventory.id} id={inventory.id} i={i} inventory = {inventory}/>
+          return <InventoryItem 
+            key={inventory.id} 
+            inventoryId={inventory.id} 
+            i={i} 
+            inventory = {inventory}
+            setReload={setReload} 
+            reload={reload}/>
       })}
     </div>
   )

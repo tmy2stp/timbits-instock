@@ -18,7 +18,6 @@ function InventoryDetails() {
         axios
             .get(`http://localhost:8080/inventories/inventory/${id}`)
             .then((response) => {
-                console.log(response.data)
                 const selectedInventory = response.data;
                 setInventoryDetails(selectedInventory);
             })
