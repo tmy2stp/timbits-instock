@@ -28,6 +28,7 @@
 
     &__icon {
         transform: translate(-4px, 5px);
+        cursor: pointer;
     }
 
     &__title {
@@ -88,6 +89,15 @@
         }
 
     }
+    &__content {
+        @include body-small;
+        margin: 0;
+
+        @include tablet {
+            @include body-medium;
+            margin-bottom: .2rem;
+        }
+    }
 
     &__description-text {
         @include tablet {
@@ -138,13 +148,5 @@
         }
     }
 
-    &__content {
-        @include body-small;
-        margin: 0;
-
-        @include tablet {
-            @include body-medium;
-            margin-bottom: .2rem;
-        }
-    }
+  
 }
