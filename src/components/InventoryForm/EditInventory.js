@@ -49,6 +49,7 @@ function EditInventory() {
         return axios.get(`http://localhost:8080/inventories/inventory/${id}`)
       })
       .then((response)=>{
+        setItemToBeEdited(response.data)
         setItemName(response.data.itemName)
         setItemDescription(response.data.description)
         setSelectedCategory(response.data.category)
@@ -210,7 +211,7 @@ function EditInventory() {
   };
 
   //early return to wait for api call to come back
-  if (warehouseNames.length === 0 || inventoryCategories === 0) {
+  if (warehouseNames.length === 0 || inventoryCategories === 0 || !itemToBeEdited) {
     return <h2>Loading...</h2>;
   }
 
@@ -394,7 +395,7 @@ function EditInventory() {
           </label>
         </div>
         <footer className="inventory-form__footer">
-          {success && <p className="inventory-form__success">Item Added</p>}
+          {success && <p className="inventory-form__success">Item Edited</p>}
           {errorMessage.length > 0 && (
             <p className="inventory-form__success inventory-form__success--error">
               {errorMessage}
