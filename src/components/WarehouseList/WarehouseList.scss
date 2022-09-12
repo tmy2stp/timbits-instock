@@ -5,38 +5,38 @@
 .warehouse {
   &__title{
     margin: 0;
-    padding-bottom: 1rem;
+
+    @include tablet {
+      margin-right: auto;
+    }
   }
   &__header {
-    padding-top: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 1rem 1rem 0 1rem;
     border-bottom: 1px solid $outline-dividers-borders;
     @include tablet {
+      padding: 2rem 2rem 1.5rem 2rem;
       display: flex;
+      flex-wrap: nowrap;
       justify-content: space-between;
       align-items: center;
+      border: none;
+    }
+    @include desktop {
+      padding: 2rem 2.2rem 1rem 2.2rem;
+      
     }
 
     &-formbtn {
       @include tablet {
         display: flex;
-        justify-content: space-around;
-        align-items: center;
-        width: 60%;
-      }
-      @include desktop {
-        width: 70%;
+        flex-wrap: nowrap;
         justify-content: flex-end;
-
       }
     }
 
     &-input {
       width: 100%;
       padding: 0.3rem 1rem;
-      margin-top: 0.25rem;
-      margin-bottom: 1rem;
       border-radius: 1.25rem;
       outline: none;
       border: 1px solid $outline-dividers-borders;
@@ -44,6 +44,7 @@
       background-image: url("../../assets/images/search-24px.svg");
       background-repeat: no-repeat;
       background-position: center right 8%;
+      margin: 1rem 0;
 
       @include body-medium;
       &:focus {
@@ -52,7 +53,6 @@
 
       @include tablet {
         margin: 0;
-        width: 100%;
       }
       @include desktop {
         width: 20rem;
@@ -71,9 +71,7 @@
       padding: 0.4rem 1rem;
       flex-basis: 50%;
       @include tablet {
-        flex-basis: auto;
-        width: 42%;
-        margin: 0;
+        margin: 0 0 0 1rem;
       }
       @include desktop {
         width: 30%;
