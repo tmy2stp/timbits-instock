@@ -413,13 +413,13 @@ function EditInventory() {
           )}
           <Link
             to="/"
-            className="inventory-form__button button button--primary"
+            className="inventory-form__button button button--cancel"
           >
             Cancel
           </Link>
           <button
             type="submit"
-            className="inventory-form__button inventory-form__button--before"
+            className="inventory-form__button button button--primary"
           >
             Save
           </button>
