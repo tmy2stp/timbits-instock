@@ -31,10 +31,7 @@ function EditInventory() {
   const [success, setSuccess] = useState(false);
 
   //get the id from the url
-  const {id} = useParams();
-
-  //state to hold the inventory item that is being edited
-  const [itemToBeEdited, setItemToBeEdited] = useState(null)
+  const paramId = useParams();
 
   //call the warehouse names and the inventory categories from the api
   useEffect(() => {
@@ -46,10 +43,9 @@ function EditInventory() {
       })
       .then((response) => {
         setInventoryCategories(response.data);
-        return axios.get(`http://localhost:8080/inventories/inventory/${id}`)
+        return axios.get(`http://localhost:8080/inventories/inventory/${paramId.id}`)
       })
       .then((response)=>{
-        setItemToBeEdited(response.data)
         setItemName(response.data.itemName)
         setItemDescription(response.data.description)
         setSelectedCategory(response.data.category)
@@ -65,7 +61,7 @@ function EditInventory() {
       .catch((error) => {
         console.log(error);
       });
-  }, [id]);
+  }, [paramId.id]);
 
   //handle change functions to control the form elements
   const handleChangeSelectedWarehouse = (event) => {
@@ -106,6 +102,7 @@ function EditInventory() {
       setErrorMessage("");
     }
     setInStock(false);
+    setItemQuantity(0);
   };
 
   const handleChangeItemName = (event) => {
@@ -191,7 +188,7 @@ function EditInventory() {
       quantity: quantity,
     };
     axios
-      .put(`http://localhost:8080/inventories/inventory/${id}`, newInventoryItem)
+      .put(`http://localhost:8080/inventories/inventory/${paramId.id}`, newInventoryItem)
       .then(() => {
         setSuccess(true);
         if(errorMessage.length>0){
@@ -210,7 +207,7 @@ function EditInventory() {
   };
 
   //early return to wait for api call to come back
-  if (warehouseNames.length === 0 || inventoryCategories === 0 || !itemToBeEdited) {
+  if (warehouseNames.length === 0 || inventoryCategories === 0) {
     return <h2>Loading...</h2>;
   }
 
@@ -394,21 +391,21 @@ function EditInventory() {
           </label>
         </div>
         <footer className="inventory-form__footer">
-          {success && <p className="inventory-form__success">Item Edited</p>}
+          {success && <p className="inventory-form__success">Item Added</p>}
           {errorMessage.length > 0 && (
-            <p className="inventory-form__success button button--cancel">
+            <p className="inventory-form__success inventory-form__success--error">
               {errorMessage}
             </p>
           )}
           <Link
             to="/"
-            className="inventory-form__button button button--primary"
+            className="inventory-form__button button button--cancel"
           >
             Cancel
           </Link>
           <button
             type="submit"
-            className="inventory-form__button inventory-form__button--before"
+            className="inventory-form__button button button--primary"
           >
             Save
           </button>
