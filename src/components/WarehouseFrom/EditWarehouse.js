@@ -7,8 +7,6 @@ import { useEffect, useState } from "react";
 const API_URL = "http://localhost:8080";
 
 function EditWarehouse() {
-  //Use navigate to go back 
-  const navigate = useNavigate();
   // Set State
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
@@ -203,7 +201,6 @@ function EditWarehouse() {
     <div className="newWarehouse-form">
       <header className="newWarehouse-form__header">
         <img
-          onClick={() => navigate(-1)}
           className="newWarehouse-form__back"
           src={backArrow}
           alt="arrow to navigate back"
