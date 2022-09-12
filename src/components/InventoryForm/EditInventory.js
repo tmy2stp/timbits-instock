@@ -33,6 +33,9 @@ function EditInventory() {
   //get the id from the url
   const {id} = useParams();
 
+  //state to hold the inventory item that is being edited
+  const [itemToBeEdited, setItemToBeEdited] = useState(null)
+
   //call the warehouse names and the inventory categories from the api
   useEffect(() => {
     axios
