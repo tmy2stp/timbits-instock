@@ -7,9 +7,12 @@ import SortIcon from "../../assets/images/sort-24px.svg";
 
 function InventoryList() {
 
-    const [inventory, setInventory] = useState();
+    const [inventory, setInventory] = useState([]);
 
     const [reload, setReload] = useState(1);
+
+    // sorting state
+    const [sorted, setSorted] = useState(false);
 
     useEffect(()=>{
         axios
@@ -22,6 +25,151 @@ function InventoryList() {
     if(!inventory) {
         return <p>Loading...</p>
     }
+ // ------------simon's sorting here-------------------------
+
+ function upOrDown() {
+    setSorted(current => !current);
+  }
+
+  function handleSortName() {
+    upOrDown();
+    if (sorted) {
+      const sortedByName = inventory.sort((a, b) => {
+        if (a.itemName < b.itemName) {
+          return -1;
+        }
+        if (a.itemName > b.itemName) {
+          return 1;
+        }
+        return 0;
+      });
+      setInventory(sortedByName);
+    }
+
+    if (!sorted) {
+      const sortedByName = inventory.sort((a, b) => {
+        if (a.itemName > b.itemName) {
+          return -1;
+        }
+        if (a.itemName < b.itemName) {
+          return 1;
+        }
+        return 0;
+      });
+      setInventory(sortedByName);
+    }
+  }
+
+  function handleSortCategory() {
+    upOrDown();
+    const sortedByName = inventory.sort((a, b) => {
+      if (a.category < b.category) {
+        return -1;
+      }
+      if (a.category > b.category) {
+        return 1;
+      }
+      return 0;
+    });
+    setInventory(sortedByName);
+
+    if (!sorted) {
+        const sortedByName = inventory.sort((a, b) => {
+          if (a.category > b.category) {
+            return -1;
+          }
+          if (a.category < b.category) {
+            return 1;
+          }
+          return 0;
+        });
+        setInventory(sortedByName)
+    }
+  }
+
+  function handleSortStatus() {
+    upOrDown();
+    const sortedByName = inventory.sort((a, b) => {
+      if (a.status < b.status) {
+        return -1;
+      }
+      if (a.status > b.status) {
+        return 1;
+      }
+      return 0;
+    });
+    setInventory(sortedByName);
+    
+    if (!sorted) {
+        const sortedByName = inventory.sort((a, b) => {
+          if (a.status > b.status) {
+            return -1;
+          }
+          if (a.status < b.status) {
+            return 1;
+          }
+          return 0;
+        });
+        setInventory(sortedByName)
+    }
+  }
+
+  function handleSortQty() {
+    upOrDown();
+    const sortedByName = inventory.sort((a, b) => {
+      if (a.quantity < b.quantity) {
+        return -1;
+      }
+      if (a.quantity > b.quantity) {
+        return 1;
+      }
+      return 0;
+    });
+    setInventory(sortedByName);
+
+    if (!sorted) {
+        const sortedByName = inventory.sort((a, b) => {
+          if (a.quantity > b.quantity) {
+            return -1;
+          }
+          if (a.quantity < b.quantity) {
+            return 1;
+          }
+          return 0;
+        });
+        setInventory(sortedByName)
+    }
+  }
+
+  function handleSortWarehouse() {
+    upOrDown();
+    const sortedByName = inventory.sort((a, b) => {
+      if (a.warehouseName < b.warehouseName) {
+        return -1;
+      }
+      if (a.warehouseName > b.warehouseName) {
+        return 1;
+      }
+      return 0;
+    });
+    setInventory(sortedByName);
+
+    if (!sorted) {
+        const sortedByName = inventory.sort((a, b) => {
+          if (a.warehouseName > b.warehouseName) {
+            return -1;
+          }
+          if (a.warehouseName < b.warehouseName) {
+            return 1;
+          }
+          return 0;
+        });
+        setInventory(sortedByName)
+    }
+  }
+
+
+ // --------------------------------------------------------
 
     return (
         <>
@@ -50,23 +198,23 @@ function InventoryList() {
             <div className="inventory-list__names names">
                 <div className="names__column names__column names__item">
                     <h4 className="names__title">Inventory item</h4>
-                    <img className="names__sort-icon" src={SortIcon} alt="Sort Icon" />
+                    <img onClick={handleSortName} className="names__sort-icon" src={SortIcon} alt="Sort Icon" />
                 </div>
                 <div className="names__column names__column names__category">
                     <h4 className="names__title">Category</h4>
-                    <img className="names__sort-icon" src={SortIcon} alt="Sort Icon" />
+                    <img onClick={handleSortCategory} className="names__sort-icon" src={SortIcon} alt="Sort Icon" />
                 </div>
                 <div className="names__column names__column names__status">
                     <h4 className="names__title">Status</h4>
-                    <img className="names__sort-icon" src={SortIcon} alt="Sort Icon" />
+                    <img onClick={handleSortStatus} className="names__sort-icon" src={SortIcon} alt="Sort Icon" />
                 </div>
                 <div className="names__column names__column names__qty">
                     <h4 className="names__title">Qty</h4>
-                    <img className="names__sort-icon" src={SortIcon} alt="Sort Icon" />
+                    <img onClick={handleSortQty} className="names__sort-icon" src={SortIcon} alt="Sort Icon" />
                 </div>
                 <div className="names__column names__column names__warehouse">
                     <h4 className="names__title">Warehouse</h4>
-                    <img className="names__sort-icon" src={SortIcon} alt="Sort Icon" />
+                    <img onClick={handleSortWarehouse} className="names__sort-icon" src={SortIcon} alt="Sort Icon" />
                 </div>
                 <div className="names__column names__column names__actions">
                     <h4 className="names__title">Actions</h4>
@@ -87,4 +235,4 @@ function InventoryList() {
     )
 }
 
-export default InventoryList
+export default InventoryList;
