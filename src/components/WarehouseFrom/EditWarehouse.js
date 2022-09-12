@@ -102,7 +102,6 @@ function EditWarehouse() {
       setManagerNameError(false);
     }
     setIsError("");
-
     setManagerName(event.target.value);
   };
 
@@ -111,7 +110,6 @@ function EditWarehouse() {
       setManagerPositionError(false);
     }
     setIsError("");
-
     setManagerPosition(event.target.value);
   };
 
@@ -120,7 +118,6 @@ function EditWarehouse() {
       setManagerPhoneError(false);
     }
     setIsError("");
-
     setManagerPhone(event.target.value);
   };
 

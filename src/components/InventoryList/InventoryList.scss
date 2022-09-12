@@ -67,6 +67,9 @@
         @include desktop {
             margin-top: .2rem;
         }
+        &:focus {
+            border-color: $inactive;
+          }
     }
 
     &__link {
@@ -93,6 +96,19 @@
             min-width: max-content;
             padding: .5rem 1rem;
             margin: 0;
+        }
+    }
+    &__empty {
+        font-size: 1rem;
+        line-height: 2.25rem;
+        font-weight: 600;
+        text-align: center;
+        padding-bottom: 2rem;
+        color: $table-header;
+      
+        @include tablet {
+          font-size: 1.2rem;
+          line-height: 2.5rem;
         }
     }
 }

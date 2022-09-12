@@ -49,6 +49,7 @@ function WarehouseInventoryList() {
           <h4 className="columns__title">Actions</h4>
         </div>
       </div>
+      {(warehouseInventory.length === 0) && <p className="inventory-list__empty">This warehouse is empty!</p>}
       {warehouseInventory.map((inventory, i) => {
         return (
           <InventoryItem

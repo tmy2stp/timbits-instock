@@ -79,11 +79,9 @@ function WarehouseList() {
       }
       return 0;
     });
-    console.log(sortedByName);
 
     setAllWarehouses(sortedByName);
     setSorted(sorted + 1);
-    console.log(allWarehouses);
   }
 
   function handleSortContactName() {
@@ -96,11 +94,9 @@ function WarehouseList() {
       }
       return 0;
     });
-    console.log(sortedByName);
 
     setAllWarehouses(sortedByName);
     setSorted(sorted + 1);
-    console.log(allWarehouses);
   }
 
   function handleSortContactPhone() {
@@ -113,11 +109,9 @@ function WarehouseList() {
       }
       return 0;
     });
-    console.log(sortedByName);
-
     setAllWarehouses(sortedByName);
     setSorted(sorted + 1);
-    console.log(allWarehouses);
+ 
   }
 
   // -----------------------------------------------------
@@ -208,7 +202,6 @@ function WarehouseList() {
       )}
       {allWarehouses.map((warehouse) => {
         return (
-          <>
             <div key={warehouse.id} className="warehouse__card">
               <div className="warehouse__card-item warehouse__card-item--warehouse">
                 <h4 className="warehouse__card-title warehouse__card-title--name">
@@ -268,7 +261,6 @@ function WarehouseList() {
                 </Link>
               </div>
             </div>
-          </>
         );
       })}
     </div>
