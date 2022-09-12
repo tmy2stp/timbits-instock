@@ -14,6 +14,7 @@ function WarehouseList() {
   const [isOpen, setIsOpen] = useState(false);
   // state to reload component after delete
   const [reload, setReload] = useState(1);
+  const [sorted, setSorted] = useState(false);
   const URL = "http://localhost:8080/warehouses";
 
   // -----states with info from the warehouse card------------
@@ -33,9 +34,96 @@ function WarehouseList() {
     setReload(reload + 1);
   }
 
+  // --------------------trying to sort--------------------
+
+  function upOrDown() {
+    setSorted((current) => !current);
+  }
+
+  function handleSortWarehouse() {
+    upOrDown();
+    if (sorted) {
+      const sortedByName = allWarehouses.sort((a, b) => {
+        if (a.name < b.name) {
+          return -1;
+        }
+        if (a.name > b.name) {
+          return 1;
+        }
+        return 0;
+      });
+      setAllWarehouses(sortedByName);
+    }
+
+    if (!sorted) {
+      const sortedByName = allWarehouses.sort((a, b) => {
+        if (a.name > b.name) {
+          return -1;
+        }
+        if (a.name < b.name) {
+          return 1;
+        }
+        return 0;
+      });
+      setAllWarehouses(sortedByName);
+    }
+  }
+
+  function handleSortAddress() {
+    const sortedByName = allWarehouses.sort((a, b) => {
+      if (a.address < b.address) {
+        return -1;
+      }
+      if (a.address > b.address) {
+        return 1;
+      }
+      return 0;
+    });
+    console.log(sortedByName);
+
+    setAllWarehouses(sortedByName);
+    setSorted(sorted + 1);
+    console.log(allWarehouses);
+  }
+
+  function handleSortContactName() {
+    const sortedByName = allWarehouses.sort((a, b) => {
+      if (a.contact.name < b.contact.name) {
+        return -1;
+      }
+      if (a.contact.name > b.contact.name) {
+        return 1;
+      }
+      return 0;
+    });
+    console.log(sortedByName);
+
+    setAllWarehouses(sortedByName);
+    setSorted(sorted + 1);
+    console.log(allWarehouses);
+  }
+
+  function handleSortContactPhone() {
+    const sortedByName = allWarehouses.sort((a, b) => {
+      if (a.contact.email < b.contact.email) {
+        return -1;
+      }
+      if (a.contact.email > b.contact.email) {
+        return 1;
+      }
+      return 0;
+    });
+    console.log(sortedByName);
+
+    setAllWarehouses(sortedByName);
+    setSorted(sorted + 1);
+    console.log(allWarehouses);
+  }
+
+  // -----------------------------------------------------
+
   useEffect(() => {
     axios.get(URL).then((response) => {
-      console.log(response.data);
       setAllWarehouses(response.data);
     });
   }, [reload]);
@@ -53,9 +141,11 @@ function WarehouseList() {
             />
           </form>
 
-          <Link to="/warehouses/add-new" className="warehouse__link"><button className="warehouse__header-button inventory-form__button--before">
-            + Add New Warehouse
-          </button></Link>
+          <Link to="/warehouses/add-new" className="warehouse__link">
+            <button className="warehouse__header-button inventory-form__button--before">
+              + Add New Warehouse
+            </button>
+          </Link>
         </div>
       </header>
       <div className="warehouse__subheaders">
@@ -63,6 +153,7 @@ function WarehouseList() {
           <h4 className="warehouse__subheader-text">
             WAREHOUSE{" "}
             <img
+              onClick={handleSortWarehouse}
               className="warehouse__subheader-arrows"
               src={sortArrows}
               alt="sorting arrows"
@@ -73,6 +164,7 @@ function WarehouseList() {
           <h4 className="warehouse__subheader-text">
             ADDRESS{" "}
             <img
+              onClick={handleSortAddress}
               className="warehouse__subheader-arrows"
               src={sortArrows}
               alt="sorting arrows"
@@ -83,6 +175,7 @@ function WarehouseList() {
           <h4 className="warehouse__subheader-text">
             CONTACT NAME{" "}
             <img
+              onClick={handleSortContactName}
               className="warehouse__subheader-arrows"
               src={sortArrows}
               alt="sorting arrows"
@@ -93,6 +186,7 @@ function WarehouseList() {
           <h4 className="warehouse__subheader-text">
             CONTACT INFORMATION{" "}
             <img
+              onClick={handleSortContactPhone}
               className="warehouse__subheader-arrows"
               src={sortArrows}
               alt="sorting arrows"
@@ -100,7 +194,9 @@ function WarehouseList() {
           </h4>
         </div>
         <div className="warehouse__subheader warehouse__subheader-icons warehouse__actions">
-          <h4 className="warehouse__subheader-text warehouse__actions-tex">ACTIONS</h4>
+          <h4 className="warehouse__subheader-text warehouse__actions-tex">
+            ACTIONS
+          </h4>
         </div>
       </div>
       {isOpen && (
