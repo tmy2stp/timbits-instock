@@ -31,7 +31,7 @@ function EditInventory() {
   const [success, setSuccess] = useState(false);
 
   //get the id from the url
-  const paramId = useParams();
+  const {id} = useParams();
 
   //call the warehouse names and the inventory categories from the api
   useEffect(() => {
@@ -43,7 +43,7 @@ function EditInventory() {
       })
       .then((response) => {
         setInventoryCategories(response.data);
-        return axios.get(`http://localhost:8080/inventories/inventory/${paramId.id}`)
+        return axios.get(`http://localhost:8080/inventories/inventory/${id}`)
       })
       .then((response)=>{
         setItemName(response.data.itemName)
@@ -61,7 +61,7 @@ function EditInventory() {
       .catch((error) => {
         console.log(error);
       });
-  }, [paramId.id]);
+  }, [id]);
 
   //handle change functions to control the form elements
   const handleChangeSelectedWarehouse = (event) => {
@@ -188,7 +188,7 @@ function EditInventory() {
       quantity: quantity,
     };
     axios
-      .put(`http://localhost:8080/inventories/inventory/${paramId.id}`, newInventoryItem)
+      .put(`http://localhost:8080/inventories/inventory/${id}`, newInventoryItem)
       .then(() => {
         setSuccess(true);
         if(errorMessage.length>0){
