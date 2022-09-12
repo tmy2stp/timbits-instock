@@ -2,7 +2,7 @@ import "./WarehouseForm.scss";
 import backArrow from "../../assets/images/arrow_back-24px.svg";
 import errorImg from "../../assets/images/error-24px.svg";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 const API_URL = "http://localhost:8080";
 
@@ -33,6 +33,9 @@ function EditWarehouse() {
 
   //useParams to get the id of the selected warehouse
   const {id} = useParams()
+
+  //useNavigate to set up backward navigation
+  const navigate = useNavigate();
 
   //state to receive the selected warehouse object
   const [selectedWarehouse, setSelectedWarehouse] = useState(null)
@@ -200,6 +203,7 @@ function EditWarehouse() {
           className="newWarehouse-form__back"
           src={backArrow}
           alt="arrow to navigate back"
+          onClick={() => navigate(-1)}
         />
         <h1 className="newWarehouse-form__title">Edit Warehouse</h1>
       </header>

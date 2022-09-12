@@ -20,7 +20,7 @@ function App() {
             <div className="background__card">
               <Routes>
 
-              <Route path="/"/>
+              <Route path="/" element={<WarehouseListPage />}/>
               <Route path="/inventory" element={<InventoryListPage />}/>
               <Route path="/warehouses" element={<WarehouseListPage />}/>
               <Route path="/warehouses/warehouse/:id" element={<WarehouseDetailsPage />}/>

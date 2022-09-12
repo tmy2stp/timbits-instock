@@ -43,7 +43,7 @@ function WarehouseList() {
   return (
     <div className="warehouse">
       <header className="warehouse__header">
-        <h1>Warehouses</h1>
+        <h1 className="warehouse__title">Warehouses</h1>
         <div className="warehouse__header-formbtn">
           <form action="">
             <input
