@@ -5,11 +5,11 @@
 
 .inventory-list {
     &__top {
-        padding: 1.5rem 1.5rem 1rem;
+        padding: 1rem 1.5rem;
         border-bottom: 1px solid $outline-dividers-borders;
 
         @include tablet {
-            padding: 2rem 2rem 1rem;
+            padding: 2rem 2rem 1.5rem;
             border-bottom: none;
             display: flex;
             justify-content: space-between;
@@ -61,6 +61,11 @@
 
         @include tablet {
             padding: .5rem 1rem;
+            margin-top: 0;
+        }
+
+        @include desktop {
+            margin-top: .2rem;
         }
     }
 
@@ -78,6 +83,7 @@
         border: none;
         color: $primary-background;
         padding: .4rem 1rem;
+        text-transform: capitalize;
 
         &:hover{
             background-color: $cta-hover;

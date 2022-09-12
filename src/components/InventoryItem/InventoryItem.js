@@ -24,7 +24,7 @@ function InventoryItem({ inventory, i, inventoryId, reload, setReload }) {
   };
 
   return (
-    <div className={`item ${i === 0 ? "item" : null}`}>
+    <div className={`item ${i === 0 ? "item__first" : null}`}>
       {clickDelete === true ? (
         <DeleteModal
           handleCloseModal={handleCloseModal}
