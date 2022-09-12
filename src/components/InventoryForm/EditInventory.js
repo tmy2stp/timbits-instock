@@ -109,6 +109,7 @@ function EditInventory() {
       setErrorMessage("");
     }
     setInStock(false);
+    setItemQuantity(0);
   };
 
   const handleChangeItemName = (event) => {
@@ -407,7 +408,7 @@ function EditInventory() {
         <footer className="inventory-form__footer">
           {success && <p className="inventory-form__success">Item Edited</p>}
           {errorMessage.length > 0 && (
-            <p className="inventory-form__success button button--cancel">
+            <p className="inventory-form__success inventory-form__success--error">
               {errorMessage}
             </p>
           )}
