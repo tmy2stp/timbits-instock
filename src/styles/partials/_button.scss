@@ -4,6 +4,7 @@
 @use "./variables"as*;
 
 .button{
+    cursor: pointer;
     @include buttons;
     border-radius: 1.25rem;
     background-color: $inactive;

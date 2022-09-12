@@ -2,11 +2,14 @@ import "./WarehouseForm.scss";
 import backArrow from "../../assets/images/arrow_back-24px.svg";
 import errorImg from "../../assets/images/error-24px.svg";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 const API_URL = "http://localhost:8080";
 
 function NewWarehouse() {
+  //useNavigate to set up backward navigation
+  const navigate = useNavigate();
+
   // Set State
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
@@ -167,6 +170,7 @@ function NewWarehouse() {
           className="newWarehouse-form__back"
           src={backArrow}
           alt="arrow to navigate back"
+          onClick={() => navigate(-1)}
         />
         <h1 className="newWarehouse-form__title"> Add New Warehouse</h1>
       </header>
