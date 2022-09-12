@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import backArrow from "../../assets/images/arrow_back-24px.svg";
 import errorImg from "../../assets/images/error-24px.svg";
 import "./InventoryForm.scss";
@@ -31,10 +31,13 @@ function EditInventory() {
   const [success, setSuccess] = useState(false);
 
   //get the id from the url
-  const {id} = useParams();
+  const { id } = useParams();
 
   //state to hold the inventory item that is being edited
-  const [itemToBeEdited, setItemToBeEdited] = useState(null)
+  const [itemToBeEdited, setItemToBeEdited] = useState(null);
+
+  //useNavigate to set up backward navigation
+  const navigate = useNavigate();
 
   //call the warehouse names and the inventory categories from the api
   useEffect(() => {
@@ -46,21 +49,21 @@ function EditInventory() {
       })
       .then((response) => {
         setInventoryCategories(response.data);
-        return axios.get(`http://localhost:8080/inventories/inventory/${id}`)
+        return axios.get(`http://localhost:8080/inventories/inventory/${id}`);
       })
-      .then((response)=>{
-        setItemToBeEdited(response.data)
-        setItemName(response.data.itemName)
-        setItemDescription(response.data.description)
-        setSelectedCategory(response.data.category)
-        if(response.data.status === "In Stock"){
-            setInStock(true)
+      .then((response) => {
+        setItemToBeEdited(response.data);
+        setItemName(response.data.itemName);
+        setItemDescription(response.data.description);
+        setSelectedCategory(response.data.category);
+        if (response.data.status === "In Stock") {
+          setInStock(true);
         }
-        if(response.data.status === "Out of Stock"){
-            setInStock(false)
+        if (response.data.status === "Out of Stock") {
+          setInStock(false);
         }
-        setItemQuantity(response.data.quantity)
-        setSelectedWarehouse(response.data.warehouseName)
+        setItemQuantity(response.data.quantity);
+        setSelectedWarehouse(response.data.warehouseName);
       })
       .catch((error) => {
         console.log(error);
@@ -106,6 +109,7 @@ function EditInventory() {
       setErrorMessage("");
     }
     setInStock(false);
+    setItemQuantity(0);
   };
 
   const handleChangeItemName = (event) => {
@@ -191,11 +195,14 @@ function EditInventory() {
       quantity: quantity,
     };
     axios
-      .put(`http://localhost:8080/inventories/inventory/${id}`, newInventoryItem)
+      .put(
+        `http://localhost:8080/inventories/inventory/${id}`,
+        newInventoryItem
+      )
       .then(() => {
         setSuccess(true);
-        if(errorMessage.length>0){
-            setErrorMessage("")
+        if (errorMessage.length > 0) {
+          setErrorMessage("");
         }
         setTimeout(() => {
           setSuccess(false);
@@ -210,7 +217,11 @@ function EditInventory() {
   };
 
   //early return to wait for api call to come back
-  if (warehouseNames.length === 0 || inventoryCategories === 0 || !itemToBeEdited) {
+  if (
+    warehouseNames.length === 0 ||
+    inventoryCategories === 0 ||
+    !itemToBeEdited
+  ) {
     return <h2>Loading...</h2>;
   }
 
@@ -221,6 +232,7 @@ function EditInventory() {
           className="inventory-form__back"
           src={backArrow}
           alt="arrow to navigate back"
+          onClick={() => navigate(-1)}
         />
         <h1 className="inventory-form__title">Edit Inventory Item</h1>
       </header>
@@ -396,19 +408,19 @@ function EditInventory() {
         <footer className="inventory-form__footer">
           {success && <p className="inventory-form__success">Item Edited</p>}
           {errorMessage.length > 0 && (
-            <p className="inventory-form__success button button--cancel">
+            <p className="inventory-form__success inventory-form__success--error">
               {errorMessage}
             </p>
           )}
           <Link
             to="/"
-            className="inventory-form__button button button--primary"
+            className="inventory-form__button button button--cancel"
           >
             Cancel
           </Link>
           <button
             type="submit"
-            className="inventory-form__button inventory-form__button--before"
+            className="inventory-form__button button button--primary"
           >
             Save
           </button>
