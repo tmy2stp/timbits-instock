@@ -2,11 +2,13 @@ import "./WarehouseForm.scss";
 import backArrow from "../../assets/images/arrow_back-24px.svg";
 import errorImg from "../../assets/images/error-24px.svg";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 const API_URL = "http://localhost:8080";
 
 function EditWarehouse() {
+  //Use navigate to go back 
+  const navigate = useNavigate();
   // Set State
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
@@ -32,29 +34,30 @@ function EditWarehouse() {
   const [isError, setIsError] = useState("");
 
   //useParams to get the id of the selected warehouse
-  const {id} = useParams()
+  const { id } = useParams();
 
   //state to receive the selected warehouse object
-  const [selectedWarehouse, setSelectedWarehouse] = useState(null)
+  const [selectedWarehouse, setSelectedWarehouse] = useState(null);
 
   //api call to populate fields with the selected warehouse information
-  useEffect(()=>{
-    axios.get(`http://localhost:8080/warehouses/warehouse/${id}`)
-    .then((response)=>{
-        setSelectedWarehouse(response.data)
-        setName(response.data.name)
-        setAddress(response.data.address)
-        setCity(response.data.city)
-        setCountry(response.data.country)
-        setManagerName(response.data.contact.name)
-        setManagerPosition(response.data.contact.position)
-        setManagerPhone(response.data.contact.phone)
-        setManagerEmail(response.data.contact.email)
-    })
-    .catch((error)=>{
-        console.log(error)
-    })
-  },[id])
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/warehouses/warehouse/${id}`)
+      .then((response) => {
+        setSelectedWarehouse(response.data);
+        setName(response.data.name);
+        setAddress(response.data.address);
+        setCity(response.data.city);
+        setCountry(response.data.country);
+        setManagerName(response.data.contact.name);
+        setManagerPosition(response.data.contact.position);
+        setManagerPhone(response.data.contact.phone);
+        setManagerEmail(response.data.contact.email);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [id]);
 
   //handle change to control the form elements
   const handleChangeName = (event) => {
@@ -176,9 +179,9 @@ function EditWarehouse() {
       .put(API_URL + "/warehouses/warehouse/" + id, newWarehouse)
       .then(() => {
         setSuccess(true);
-        setTimeout(()=>{
-            setSuccess(false)
-        }, 2000)
+        setTimeout(() => {
+          setSuccess(false);
+        }, 2000);
       })
       .catch((error) => {
         setIsError(error.response.data.error);
@@ -188,7 +191,7 @@ function EditWarehouse() {
       });
   };
 
-   //early return to wait for api call to come back
+  //early return to wait for api call to come back
   if (!selectedWarehouse) {
     return <h2>Loading...</h2>;
   }
@@ -197,6 +200,7 @@ function EditWarehouse() {
     <div className="newWarehouse-form">
       <header className="newWarehouse-form__header">
         <img
+          onClick={() => navigate(-1)}
           className="newWarehouse-form__back"
           src={backArrow}
           alt="arrow to navigate back"
