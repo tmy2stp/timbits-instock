@@ -67,7 +67,7 @@ function InventoryDetails() {
                 <div className="inventory-details__info-right">
                     <div className="inventory-details__status">
                         <h4 className="inventory-details__label">Status:</h4>
-                        <p className={`${inventoryDetails.status === "In Stock" ? "inventory-details__in-stock" : "inventory-details__out-of-stock"} inventory-details__content`}>{inventoryDetails.status}</p>
+                        <p className={` inventory-details__content ${inventoryDetails.status === "In Stock" ? "inventory-details__in-stock" : "inventory-details__out-of-stock"}`}>{inventoryDetails.status}</p>
 
                     </div>
                     <div className="inventory-details__quantity">

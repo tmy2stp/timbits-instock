@@ -121,6 +121,16 @@
     &__quantity {
         padding-left: .5rem;
     }
+    &__content {
+        @include body-small;
+        margin: 0;
+
+        @include tablet {
+            @include body-medium;
+            margin-bottom: .2rem;
+        }
+    }
+
     &__in-stock {
         @include in-stock;
     }
@@ -135,16 +145,6 @@
         @include tablet {
             font-size: 0.75rem;
             margin: 0 0 .5rem;
-        }
-    }
-
-    &__content {
-        @include body-small;
-        margin: 0;
-
-        @include tablet {
-            @include body-medium;
-            margin-bottom: .2rem;
         }
     }
 }
