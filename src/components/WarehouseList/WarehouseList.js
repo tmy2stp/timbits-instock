@@ -45,21 +45,21 @@ function WarehouseList() {
       <header className="warehouse__header">
         <h1 className="warehouse__title">Warehouses</h1>
         <div className="warehouse__header-formbtn">
-          <form action="">
+          <form className="warehouse__form" action="">
             <input
               type="text"
-              placeholder="Search...."
+              placeholder="Search..."
               className="warehouse__header-input"
             />
           </form>
 
-          <button className="warehouse__header-button inventory-form__button--before">
+          <Link to="/warehouses/add-new" className="warehouse__link"><button className="warehouse__header-button inventory-form__button--before">
             + Add New Warehouse
-          </button>
+          </button></Link>
         </div>
       </header>
       <div className="warehouse__subheaders">
-        <div className="warehouse__subheader">
+        <div className="warehouse__subheader  warehouse__name">
           <h4 className="warehouse__subheader-text">
             WAREHOUSE{" "}
             <img
@@ -69,7 +69,7 @@ function WarehouseList() {
             />
           </h4>
         </div>
-        <div className="warehouse__subheader">
+        <div className="warehouse__subheader warehouse__address">
           <h4 className="warehouse__subheader-text">
             ADDRESS{" "}
             <img
@@ -79,7 +79,7 @@ function WarehouseList() {
             />
           </h4>
         </div>
-        <div className="warehouse__subheader">
+        <div className="warehouse__subheader warehouse__contact-name">
           <h4 className="warehouse__subheader-text">
             CONTACT NAME{" "}
             <img
@@ -89,8 +89,8 @@ function WarehouseList() {
             />
           </h4>
         </div>
-        <div className="warehouse__subheader warehouse__subheader--info">
-          <h4 className="warehouse__subheader-text ">
+        <div className="warehouse__subheader warehouse__subheader--info warehouse__contact-info">
+          <h4 className="warehouse__subheader-text">
             CONTACT INFORMATION{" "}
             <img
               className="warehouse__subheader-arrows"
@@ -99,8 +99,8 @@ function WarehouseList() {
             />
           </h4>
         </div>
-        <div className="warehouse__subheader warehouse__subheader-icons">
-          <h4 className="warehouse__subheader-text">ACTIONS</h4>
+        <div className="warehouse__subheader warehouse__subheader-icons warehouse__actions">
+          <h4 className="warehouse__subheader-text warehouse__actions-tex">ACTIONS</h4>
         </div>
       </div>
       {isOpen && (
