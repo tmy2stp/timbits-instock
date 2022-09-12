@@ -29,6 +29,7 @@
 
     &__icon {
         transform: translate(-4px, 5px);
+        cursor: pointer;
     }
 
     &__title {
@@ -47,6 +48,7 @@
         border-radius: 20px;
         color: $primary-background;
         padding-left: 1.5rem;
+        cursor: pointer;
 
         @include tablet {
             width: 5rem;
