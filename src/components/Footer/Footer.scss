@@ -2,7 +2,11 @@
 @use '../../styles/partials/variables' as *;
 
 .footer {
-    padding-bottom: 2rem;
+    margin: auto 2rem 0 2rem;
     text-align:center;
     color: $table-header;
+    @include tablet {
+        margin-bottom: 2.5rem;
+        margin-top: auto;
+    }
 }

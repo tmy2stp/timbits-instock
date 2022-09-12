@@ -9,13 +9,13 @@
     &__header {
         flex-basis: 100%;
         display: flex;
-        padding: 1rem 1.5rem;
+        padding: 1.4rem 1.5rem;
         border-bottom: 1px solid $outline-dividers-borders;
         margin-bottom: .5rem;
         align-items: baseline;
         @include tablet {
             margin-bottom: 1rem;
-            padding: 1.5rem 2rem 1rem 2rem;
+            padding: 2.5rem 2rem 1rem 2rem;
         }
     }
     &__back {

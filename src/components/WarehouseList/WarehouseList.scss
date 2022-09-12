@@ -271,7 +271,9 @@
   }
 
   &__card:hover {
-    background-color: $cta-background;
+    @include desktop {
+      background-color: $cta-background;
+    }
   }
 
   &__name {

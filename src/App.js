@@ -4,7 +4,6 @@ import "./App.scss";
 import Header from "./components/Header/Header";
 import Footer from './components/Footer/Footer.js';
 import WarehouseDetailsPage from "./pages/WarehouseDetailsPage";
-// import DeleteModal from "./components/DeleteModal/DeleteWarehouse";
 import WarehouseFormPage from "./pages/WarehouseFormPage";
 import InventoryListPage from "./pages/InventoryListPage";
 import InventoryDetailsPage from "./pages/InventoryDetailsPage";
@@ -13,13 +12,11 @@ import WarehouseListPage from "./pages/WarehouseListPage";
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
+    <BrowserRouter>
         <Header />
           <main className="background">
             <div className="background__card">
               <Routes>
-
               <Route path="/" element={<WarehouseListPage />}/>
               <Route path="/inventory" element={<InventoryListPage />}/>
               <Route path="/warehouses" element={<WarehouseListPage />}/>
@@ -32,10 +29,8 @@ function App() {
               </Routes> 
           </div> 
           </main> 
-          <Footer />
-      </BrowserRouter> 
-
-    </>
+        <Footer />
+    </BrowserRouter> 
   )
 }
 
