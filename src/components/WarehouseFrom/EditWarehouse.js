@@ -36,6 +36,9 @@ function EditWarehouse() {
   //useParams to get the id of the selected warehouse
   const { id } = useParams();
 
+  //useNavigate to set up backward navigation
+  const navigate = useNavigate();
+
   //state to receive the selected warehouse object
   const [selectedWarehouse, setSelectedWarehouse] = useState(null);
 
@@ -204,6 +207,7 @@ function EditWarehouse() {
           className="newWarehouse-form__back"
           src={backArrow}
           alt="arrow to navigate back"
+          onClick={() => navigate(-1)}
         />
         <h1 className="newWarehouse-form__title">Edit Warehouse</h1>
       </header>
